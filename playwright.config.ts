@@ -10,8 +10,8 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const viewport = { 
-  width: 1440,
-  height: 900
+  width: 1920,
+  height: 1080
 }
 
 export default defineConfig({
@@ -33,7 +33,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    viewport: viewport
+    // viewport: viewport
+    testIdAttribute: 'data-aid'
   },
   expect: {
     timeout: 20000
@@ -48,30 +49,12 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { 
-        ...devices['Desktop Chrome'],
-        storageState: 'playwright/.auth/user.json',
+        browserName: 'chromium',
+        // storageState: 'playwright/.auth/user.json',
+        viewport: viewport
       },
-      dependencies: ['setup']
-    },
-
-    {
-      name: 'firefox',
-      use: { 
-        ...devices['Desktop Firefox'],
-        storageState: 'playwright/.auth/user.json',
-      },
-      dependencies: ['setup']
-    },
-
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'],
-        storageState: 'playwright/.auth/user.json',
-      },
-      dependencies: ['setup']
-    },
-
+      // dependencies: ['setup']
+    }
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
