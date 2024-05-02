@@ -1,0 +1,399 @@
+{
+  "cookies": [
+    {
+      "name": "optimizelyEndUserId",
+      "value": "oeu1714658403021r0.513108803974595",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1730210407,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "setting",
+      "value": "CD%3DUS%26M%3D1",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tracking-preferences",
+      "value": "{%22version%22:1%2C%22destinations%22:{%22AWS%20S3%22:true%2C%22Actions%20Amplitude%22:true%2C%22Drip%22:true%2C%22Google%20Tag%20Manager%22:true%2C%22Hotjar%22:true%2C%22Optimizely%22:true}%2C%22custom%22:{%22advertising%22:true%2C%22functional%22:true%2C%22marketingAndAnalytics%22:true}}",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194404,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tcg-uuid",
+      "value": "6eb93227-d195-43a7-9aa3-3d17ceb596ac",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218405.312905,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__ssid",
+      "value": "364f6e51c8954152299b5bc18559dab",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218405.412274,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ajs_anonymous_id",
+      "value": "45dae6b4-e9d5-44d6-bc05-67d02b179575",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194408,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "analytics_session_id",
+      "value": "1714658405841",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194408,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gcl_au",
+      "value": "1.1.1657337960.1714658406.1550943824.1714658407.1714658406",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1722434406,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.1298061008.1714658407",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218408.393766,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_hjSession_2894596",
+      "value": "eyJpZCI6ImZkOTdhY2Q1LTc4MTUtNDQ5YS05MzI1LWU2YWRmNGJiOGRhMCIsImMiOjE3MTQ2NTg0MDY3NDEsInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjoxLCJzcCI6MX0=",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1714660206,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1714658406888.990588765",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1722434408,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_drip_visitor_4160913",
+      "value": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IklqUXlaV0k1TmpkaU0ySTBNVFJrTWpZNE5qTmlObVJsT0RWa1pUa3lNRFU0SWc9PSIsImV4cCI6IjIwMjYtMDUtMDJUMTQ6MDA6MDYuOTE0WiIsInB1ciI6ImNvb2tpZS5fZHJpcF92aXNpdG9yXzQxNjA5MTMifX0%3D--908865be8f4883800708fe66559a773a84a36a88",
+      "domain": ".getdrip.com",
+      "path": "/",
+      "expires": 1749218406.984072,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "SNS",
+      "value": "1",
+      "domain": "www.tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_sn_m",
+      "value": "{\"r\":{\"n\":1}}",
+      "domain": "www.tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194407,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_sn_a",
+      "value": "{\"a\":{\"s\":1714658407345}}",
+      "domain": "www.tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194407,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_sn_n",
+      "value": "{\"a\":{\"i\":\"cdd6bc28-db45-460a-aa8c-be213a964c7d\"}}",
+      "domain": "www.tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194407,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "TCGAuthTicket_AWSQA",
+      "value": "73809B7B1B5EA39F4047D0A33499F0804E8920D7033FDF9A805DD2188333007BE81128F3F9BF966FC4DC6640F8B2B0FA28666F4CFE846F4C03E0E4ABFAD03899C0EDF72734F33B34EA326A9003BF33F82F006405A55D75F2A17A815E16B11DBE74734F2C",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "BuyerRevalidationKey",
+      "value": "",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1714662007.553965,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "TCG_VisitorKey",
+      "value": "e27cd916-b5d7-42ff-986a-4c809ceb7b4b",
+      "domain": "mpapi.tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "StoreCart_AWSQA",
+      "value": "CK=ddb1543f1ae349a6bbada44a2a90f420&Ignore=false",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "StoreSaveForLater_AWSQA",
+      "value": "SFLK=ec38409ee2e048d29fc9efdd5eae41b6&Ignore=false",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ajs_user_id",
+      "value": "ec5a3302-1a92-4733-b44d-6da9fe21e269",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194408,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "analytics_session_id.last_access",
+      "value": "1714658408237",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194408,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_hjSessionUser_2894596",
+      "value": "eyJpZCI6IjU1NjlkNmIxLTM5ODAtNWFiZC04ZjAzLWJkN2I4NWI0NzQ0OSIsImNyZWF0ZWQiOjE3MTQ2NTg0MDY3NDAsImV4aXN0aW5nIjp0cnVlfQ==",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1746194408,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_drip_client_4160913",
+      "value": "vid%253D42eb967b3b414d26863b6de85de92058%2526pageViews%253D2%2526sessionPageCount%253D2%2526lastVisitedAt%253D1714658408290%2526weeklySessionCount%253D1%2526lastSessionAt%253D1714658406988",
+      "domain": "www.tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218408.29121,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "IDE",
+      "value": "AHWqTUn9q5MX9Kr_QaLuuxtWsXgIb4dKq_rVL_TY0UeqyaSJMIU64LsMPIhhXiBL",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1749218408.380648,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga_VS9BE2Z3GY",
+      "value": "GS1.1.1714658406.1.1.1714658408.58.0.0",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218408.396633,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_XTQ57721TQ",
+      "value": "GS1.1.1714658406.1.1.1714658408.0.0.0",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1749218408.415001,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "TCG_VisitorKey",
+      "value": "22b9bef1-12fd-44ec-aa8d-f91ae0161f98",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tcg-segment-session",
+      "value": "1714658405407%257C1714658408553",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.tcgplayer-qa.com",
+      "localStorage": [
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$variation_map",
+          "value": "{}"
+        },
+        {
+          "name": "ajs_user_id",
+          "value": "\"ec5a3302-1a92-4733-b44d-6da9fe21e269\""
+        },
+        {
+          "name": "is-blocked-id",
+          "value": "1714658405359.709"
+        },
+        {
+          "name": "ajs_user_traits",
+          "value": "{\"enabled_features\":[],\"destinationTrackingPreferences\":{\"AWS S3\":true,\"Actions Amplitude\":true,\"Drip\":true,\"Google Tag Manager\":true,\"Hotjar\":true,\"Optimizely\":true},\"customTrackingPreferences\":{\"advertising\":true,\"functional\":true,\"marketingAndAnalytics\":true},\"session_referrer\":\"https://www.tcgplayer-qa.com/login?returnUrl=https://www.tcgplayer-qa.com/\",\"session_referring_domain\":\"www.tcgplayer-qa.com\",\"session_infinite_first_author\":\"--EMPTY--\",\"session_infinite_first_article\":\"--EMPTY--\",\"session_infinite_first_article_date\":\"1970-01-01\",\"session_infinite_first_article_format\":\"--EMPTY--\",\"session_infinite_first_article_subcategory\":[],\"session_infinite_first_article_vertical\":\"--EMPTY--\",\"session_infinite_last_author\":\"--EMPTY--\",\"session_infinite_last_article\":\"--EMPTY--\",\"session_infinite_last_article_date\":\"1970-01-01\",\"session_infinite_last_article_format\":\"--EMPTY--\",\"session_infinite_last_article_subcategory\":[],\"session_infinite_last_article_vertical\":\"--EMPTY--\",\"isInfiniteSubscriber\":false,\"isSignedIn\":true,\"isTcgplayerSeller\":0,\"viewportWidth\":1440,\"viewportHeight\":900,\"referrer\":\"https://www.tcgplayer-qa.com/login?returnUrl=https://www.tcgplayer-qa.com/\",\"referring_domain\":\"www.tcgplayer-qa.com\"}"
+        },
+        {
+          "name": "recent-searches_pending",
+          "value": "[]"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$events",
+          "value": "[{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-search-display-recent-searches\",\"is_flag_enabled\":false}},\"h\":\"db74bed8\",\"tb\":1714658406201,\"ts\":[{\"d\":0,\"i\":0}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-search-autocomplete-tablestakes\",\"is_flag_enabled\":true}},\"h\":\"d9ba7258\",\"tb\":1714658406203,\"ts\":[{\"d\":0,\"i\":1}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-search-display-trending-searches\",\"is_flag_enabled\":false}},\"h\":\"7fc2614a\",\"tb\":1714658406203,\"ts\":[{\"d\":0,\"i\":2}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-autocomplete-product-affinity\",\"is_flag_enabled\":false}},\"h\":\"be9336e5\",\"tb\":1714658406204,\"ts\":[{\"d\":0,\"i\":3}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"be-search-price-affinity\",\"is_flag_enabled\":false}},\"h\":\"75834a49\",\"tb\":1714658406205,\"ts\":[{\"d\":0,\"i\":4}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-homepage-best-selling\",\"is_flag_enabled\":false}},\"h\":\"60851dfb\",\"tb\":1714658406206,\"ts\":[{\"d\":0,\"i\":5}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"mp-homepage-publishing\",\"is_flag_enabled\":false}},\"h\":\"f12172cd\",\"tb\":1714658406206,\"ts\":[{\"d\":0,\"i\":6}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"mp-homepage-product-affinity\",\"is_flag_enabled\":false}},\"h\":\"be27c89f\",\"tb\":1714658406207,\"ts\":[{\"d\":0,\"i\":7}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"be-improved-personalized-recs\",\"is_flag_enabled\":false}},\"h\":\"92372b80\",\"tb\":1714658406208,\"ts\":[{\"d\":0,\"i\":8}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"be_srp_ux_improvements_2024\",\"is_flag_enabled\":false}},\"h\":\"6f358e6\",\"tb\":1714658406209,\"ts\":[{\"d\":0,\"i\":9}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-homepage-display-save-for-later\",\"is_flag_enabled\":false}},\"h\":\"1a329f4a\",\"tb\":1714658406209,\"ts\":[{\"d\":0,\"i\":10}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-homepage-recent-viewed-items\",\"is_flag_enabled\":true}},\"h\":\"61b29e31\",\"tb\":1714658406210,\"ts\":[{\"d\":0,\"i\":11}]},{\"eb\":{\"n\":\"Feature Flag Evaluated\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"feature_flag\":\"hsg-homepage-items-for-you\",\"is_flag_enabled\":false}},\"h\":\"6905fc78\",\"tb\":1714658406211,\"ts\":[{\"d\":0,\"i\":12}]},{\"eb\":{\"n\":\"Marketplace Homepage Viewed\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\",\"hero_banner_url\":\"https://www.tcgplayer.com/search/magic/the-brothers-war\",\"merch_type\":\"featured items\",\"merch_category\":\"item\"}},\"h\":\"b92bf941\",\"tb\":1714658406211,\"ts\":[{\"d\":0,\"i\":13}]},{\"eb\":{\"n\":\"Sign-in Viewed\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\"}},\"h\":\"33cb45cb\",\"tb\":1714658406212,\"ts\":[{\"d\":0,\"i\":14}]},{\"eb\":{\"n\":\"Account Signed In\",\"y\":\"custom\",\"c\":\"other\",\"o\":{\"path\":\"https://www.tcgplayer-qa.com/login?returnUrl=https://www.tcgplayer-qa.com/\",\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\"}},\"h\":\"46084927\",\"tb\":1714658407568,\"ts\":[{\"d\":0,\"i\":15}]}]"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$layer_map",
+          "value": "{}"
+        },
+        {
+          "name": "recent-searches_",
+          "value": "[]"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$layer_states",
+          "value": "[]"
+        },
+        {
+          "name": "analytics_session_id.last_access",
+          "value": "1714658408602"
+        },
+        {
+          "name": "sn_global_countdown_last_reset_timestamp",
+          "value": "1714658407346"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$event_queue",
+          "value": "[]"
+        },
+        {
+          "name": "optimizely_data$$pending_events",
+          "value": "{}"
+        },
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$session_state",
+          "value": "{\"lastSessionTimestamp\":1714658407940,\"sessionId\":\"33631e2d-bea0-4dfa-bb1d-f70ef3160a21\"}"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1714658406885"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$tracker_optimizely",
+          "value": "{\"data\":{\"account_id\":\"15795180511\",\"anonymize_ip\":true,\"client_name\":\"js\",\"client_version\":\"0.191.0\",\"project_id\":\"15829800167\",\"visitors\":[{\"session_id\":\"AUTO\",\"visitor_id\":\"oeu1714658403021r0.513108803974595\",\"attributes\":[{\"entity_id\":null,\"key\":\"\",\"type\":\"first_session\",\"value\":true},{\"entity_id\":null,\"key\":\"\",\"type\":\"browserId\",\"value\":\"gc\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"device\",\"value\":\"desktop\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"device_type\",\"value\":\"desktop_laptop\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"source_type\",\"value\":\"direct\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"currentTimestamp\",\"value\":1714658403034},{\"entity_id\":null,\"key\":\"\",\"type\":\"offset\",\"value\":240}],\"snapshots\":[{\"decisions\":[],\"events\":[{\"key\":\"Account Signed In\",\"timestamp\":1714658407568,\"uuid\":\"3d2c96bd-4a15-4325-a5a1-ec6492708d94\",\"type\":\"other\",\"tags\":{\"path\":\"https://www.tcgplayer-qa.com/login?returnUrl=https://www.tcgplayer-qa.com/\",\"application\":\"MPFE\",\"domain\":\"www.tcgplayer-qa.com\"}}]}]},{\"session_id\":\"AUTO\",\"visitor_id\":\"oeu1714658403021r0.513108803974595\",\"attributes\":[{\"entity_id\":null,\"key\":\"\",\"type\":\"first_session\",\"value\":true},{\"entity_id\":null,\"key\":\"\",\"type\":\"browserId\",\"value\":\"gc\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"device\",\"value\":\"desktop\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"device_type\",\"value\":\"desktop_laptop\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"source_type\",\"value\":\"direct\"},{\"entity_id\":null,\"key\":\"\",\"type\":\"currentTimestamp\",\"value\":1714658407947},{\"entity_id\":null,\"key\":\"\",\"type\":\"offset\",\"value\":240}],\"snapshots\":[{\"decisions\":[],\"events\":[{\"entity_id\":null,\"type\":\"client_activation\",\"uuid\":\"f700e8e8-f8b6-415d-b1ac-2c4652c77e1d\",\"timestamp\":1714658407947}]}]}],\"revision\":\"1010\",\"enrich_decisions\":true},\"decisions\":[],\"decisionEvents\":[],\"previousBatches\":[]}"
+        },
+        {
+          "name": "__paypal_storage__",
+          "value": "{\"id\":\"uid_7d4f1d89f0_mtq6mda6mdy\",\"__session__\":{\"guid\":\"uid_5449c82da8_mtq6mda6mdu\",\"created\":1714658405693},\"experiments\":{\"treatmentsHash\":\"190db72d1ae0ce673ed661608ee20fc337958964\",\"expiration\":1714659306395}}"
+        },
+        {
+          "name": "ajs_anonymous_id",
+          "value": "\"45dae6b4-e9d5-44d6-bc05-67d02b179575\""
+        },
+        {
+          "name": "NRBA_SESSION",
+          "value": "{\"value\":\"7f3da6a71cfc9b30\",\"inactiveAt\":1714660206328,\"expiresAt\":1714672804691,\"updatedAt\":1714658407873,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":true,\"custom\":{}}"
+        },
+        {
+          "name": "optimizely_data$$oeu1714658403021r0.513108803974595$$15829800167$$visitor_profile",
+          "value": "{\"profile\":{\"visitorId\":\"oeu1714658403021r0.513108803974595\",\"customBehavior\":{},\"first_session\":true,\"browserId\":\"gc\",\"browserVersion\":\"123.0.0.0\",\"device\":\"desktop\",\"device_type\":\"desktop_laptop\",\"referrer\":null,\"source_type\":\"direct\",\"currentTimestamp\":1714658407947,\"offset\":240},\"metadata\":{\"visitorId\":{},\"events\":{},\"customBehavior\":{},\"first_session\":{},\"browserId\":{},\"browserVersion\":{},\"device\":{},\"device_type\":{},\"referrer\":{},\"source_type\":{},\"currentTimestamp\":{},\"offset\":{}}}"
+        },
+        {
+          "name": "analytics_session_id",
+          "value": "1714658405841"
+        }
+      ]
+    }
+  ]
+}
