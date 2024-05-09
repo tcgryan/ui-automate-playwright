@@ -15,3 +15,9 @@ test('other test', async ({ page }) => {
   await page.goto('https://www.tcgplayer-qa.com/account/addresses')
   await expect(page.getByTestId('account-page-content')).toBeVisible();
 })
+
+test('yet another test', async ({ page }) => {
+  console.log('sup nerdos from yet another test')
+  await page.goto('https://www.tcgplayer-qa.com/account/payments')
+  await expect(page.getByTestId('account-page-content')).toBeVisible();
+})
