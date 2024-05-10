@@ -6,7 +6,7 @@ import { BulkAddItemsRequest, BulkAddItemsRequest_ItemRequest } from '../helpers
 
 export * from '@playwright/test';
 
-export const test = baseTest.extend<{}, { workerStorageState: string, cartSetup: any }>({
+export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   storageState: ({ workerStorageState }, use) => use(workerStorageState),
   workerStorageState: [async ({}, use) => {
     const id = test.info().parallelIndex;
@@ -48,7 +48,7 @@ export const test = baseTest.extend<{}, { workerStorageState: string, cartSetup:
     await context.dispose();
     await use(fileName);
   }, { scope : 'worker' }],
-  cartSetup: [async ({}, use) => {
+  cartSetup: async ({}, use) => {
     const context = await request.newContext();
     const response = await context.get('https://mpapi.tcgplayer-qa.com/v2/user?isGuest=false');
     console.log(await response.json());
@@ -77,8 +77,12 @@ export const test = baseTest.extend<{}, { workerStorageState: string, cartSetup:
     
     seedCart(cartKey, addItemsRequest);    
 
-    await use();
-  }, { scope : 'worker' }]
+    await use('');
+  },
+  dbSetup: async ({}, use) => {
+    console.log('dbSetup');
+    await use('');
+  },
 });
 
 async function acquireAccount(id: number): Promise<Account>{
@@ -113,4 +117,13 @@ interface APIResponse {
 interface UserInfo {
   externalUserId: string
   cartKey: string
+}
+
+type MyFixtures = {
+  cartSetup: string,
+  dbSetup: string
+}
+
+type MyWorkerFixtures = {
+  workerStorageState: string
 }
