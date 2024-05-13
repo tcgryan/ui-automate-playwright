@@ -1,70 +1,80 @@
-import { test, expect } from '../playwright/fixtures';
+import { test, expect } from '../fixtures/fixtures';
 
-test.describe('Checkout', () => {
-  test('post - 200 from order submission', () => {
-    //
+test.describe('authenticated user checkout tests', () => {
+  test('domestic user can checkout with credit card from ui', { annotation: {
+    type: 'domestic',
+    description: 'This test is for domestic users'
+  } }, async ({ cartSetup, page, cartPage, reviewPage }, testInfo) => {
+    const cardDetails = {
+      cardNumber: '4111111111111111',
+      expMonth: '06 June',
+      expYear: '2025',
+      cvv: '123',
+    }
+
+    await cartPage.goto();
+
+    await cartPage.checkout();
+
+    await reviewPage.selectCardAsPaymentType();
+    await reviewPage.enterCardDetails(cardDetails);
+
+    await reviewPage.submitOrder();
   });
 
-  test('get - order id exists', () => {
+  test('international user can checkout with credit card from ui', { annotation: {
+    type: 'international',
+    description: 'This test is for international users'
+  } }, async ({ cartSetup, page, cartPage, reviewPage }) => {
+    const cardDetails = {
+      cardNumber: '4111111111111111',
+      expMonth: '06 June',
+      expYear: '2025',
+      cvv: '123',
+    }
 
+    await cartPage.goto();
+
+    await cartPage.checkout();
+
+    await reviewPage.selectCardAsPaymentType();
+    await reviewPage.enterCardDetails(cardDetails);
+
+    await reviewPage.submitOrder();
   });
 
-  test('domestic authenticated user can checkout with credit card from ui', () => {});
-
-  test('international authenticated user can checkout with credit card from ui', () => {});
-
-  test('domestic guest user can checkout with credit card from ui', () => {});
-
-  test('international guest user can checkout with credit card from ui', () => {});
-
-  test('order appears in order history', () => {});
+  // test.use({ storageState: undefined })
+  test('authed checkout', async ({ cartSetup, cartPage}) => {
+    await cartPage.goto()
+  })
 });
 
+test.describe.skip('guest user checkout tests', () => {
+  test.use({
+    storageState: undefined
+  });
 
-test('domestic authenticated user can checkout with credit card', async ({ page, cartSetup }) => {
-  // Reset seller inventory
-  // Clear cart
-  // Login
-  // Add to cart
-  // click checkout
-  // verifications?
-  // click checkout
-  // more verifications?
-  // checkout?
-  // where is the assertion??
-  // console.log(await seedCart);
-  console.log('sup nerdos from test');
-  await page.goto('https://www.tcgplayer-qa.com/cart');
-})
+  test('domestic user can checkout with credit card from ui', async ({ cartSetup, page, cartPage }) => {
+  });
 
-// test('international authenticated user can checkout with credit card', async ({ page, cartSetup }) => {
-//   // Reset seller inventory
-//   // Clear cart
-//   // Login
-//   // Add to cart
-//   // click checkout
-//   // verifications?
-//   // click checkout
-//   // more verifications?
-//   // checkout?
-//   // where is the assertion??
-//   // console.log(await seedCart);
-//   console.log('sup nerdos from international test');
-//   await page.goto('https://www.tcgplayer-qa.com/cart');
-// })
+  test('international user can checkout with credit card from ui', async ({ cartSetup, page }) => {
+  });
 
-// test('domestic guest user can checkout with credit card', async ({ page, cartSetup }) => {
-//   // Reset seller inventory
-//   // Clear cart
-//   // Login
-//   // Add to cart
-//   // click checkout
-//   // verifications?
-//   // click checkout
-//   // more verifications?
-//   // checkout?
-//   // where is the assertion??
-//   // console.log(await seedCart);
-//   console.log('sup nerdos from guest test');
-//   await page.goto('https://www.tcgplayer-qa.com/cart');
-// })
+});
+
+test.describe.skip('general checkout tests', () => {
+  test('post - 200 from order submission', async ({ page, cartSetup }) => {
+  });
+
+  test('get - order id exists', async ({ cartSetup, page }) => {
+  });
+
+  test('order appears in order history', async ({ cartSetup, page }) => {
+  });
+});
+
+test.describe.skip('shipping address tests', () => {
+  test('', async () => {
+    
+  });
+});

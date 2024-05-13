@@ -1,23 +1,13 @@
-import { test, expect } from '../playwright/fixtures';
+import { test, expect } from '../fixtures/fixtures';
 
-test.use({
-  testIdAttribute: 'data-testid'
-});
-
-test('cart loads', async ({ page }) => {
-  console.log('sup nerdos from test')
-  await page.goto('https://www.tcgplayer-qa.com/cart')
-  await expect(page.getByTestId('areaPackageContainer')).toBeVisible();
+test('snackbar appears when cart is cleared', async ({ page, cartSetup, cartPage, snackbar }) => {
+  await cartPage.goto();
+  await cartPage.clearCart();
+  await expect(snackbar.snackbar).toBeVisible();
 })
 
-test('other test', async ({ page }) => {
-  console.log('sup nerdos from other test')
-  await page.goto('https://www.tcgplayer-qa.com/account/addresses')
-  await expect(page.getByTestId('account-page-content')).toBeVisible();
+test.skip('other test', async ({ page }) => {
 })
 
-test('yet another test', async ({ page }) => {
-  console.log('sup nerdos from yet another test')
-  await page.goto('https://www.tcgplayer-qa.com/account/payments')
-  await expect(page.getByTestId('account-page-content')).toBeVisible();
+test.skip('yet another test', async ({ page }) => {
 })

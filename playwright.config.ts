@@ -16,6 +16,7 @@ const viewport = {
 }
 
 export default defineConfig({
+  globalSetup: require.resolve('./setup/global-setup.ts'),
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,10 +38,6 @@ export default defineConfig({
     // viewport can be set here when using a generic browser name
     viewport: viewport
   },
-  expect: {
-    timeout: 20000
-  },
-
   /* Configure projects for major browsers */
   projects: [
     {

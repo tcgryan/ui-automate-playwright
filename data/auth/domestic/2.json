@@ -1,0 +1,55 @@
+{
+  "cookies": [
+    {
+      "name": "TCGAuthTicket_AWSSTG",
+      "value": "8F7A693DEDEF624124E65C16D24A5542F4A28B858F82CA669B7022636C11D8FAF800C616E7D81A636C9CBEBE2D3D7B9DFE3AEB1A4A10E7E96E314FC25DB5A74045D46B447833F729D7AEE6DE9C036E2C1287B4ACB82440DF7CF5777EE830C632642B402187459102EDB22897B283396C5ADC7F9ABB1D874D8DDA51E0FD3B17416976D7C7",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "BuyerRevalidationKey",
+      "value": "",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": 1715628849,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "StoreCart_AWSSTG",
+      "value": "CK%3D2b20e7521f754a3ea7e955d5087486a3%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "StoreSaveForLater_AWSSTG",
+      "value": "SFLK%3Ddb9a0d6903cd46b6a9c5b64fb6197801%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "setting",
+      "value": "CD%3DUS%26M%3D1",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

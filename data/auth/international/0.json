@@ -1,0 +1,35 @@
+{
+  "cookies": [
+    {
+      "name": "TCGAuthTicket_AWSSTG",
+      "value": "8B2D2C09EB766340D53F158E25BD7DF463151D4047E06E9DB4AA762973DC4303BA423082C77A45075D7FDBF87E71A899ABB1D5FC2D1D6F4A58180B8E1980AAC7F4AD252E592D54F8A86699C820CC036DF218F0F64860D85396AE7788C582A7A63404F85E41B2ED618FBDC45F635480DA9C27D99EF11193919AA9BC027EF5B2150485D8D9",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "BuyerRevalidationKey",
+      "value": "",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": 1715627855,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "setting",
+      "value": "CD%3DUS%26M%3D1",
+      "domain": ".tcgplayer-stg.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
