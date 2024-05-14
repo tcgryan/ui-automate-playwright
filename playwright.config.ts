@@ -48,12 +48,12 @@ export default defineConfig({
         // viewport can be set here when using a specific device that comes with a viewport
         // viewport: viewport
       },
-    }
+    },
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },

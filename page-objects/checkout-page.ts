@@ -8,7 +8,7 @@ export class CheckoutPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.editShippingAddressButton = page.getByTestId('checkout-card-action-btn');
+    this.editShippingAddressButton = page.getByLabel('Edit', { exact: true }).or(page.getByLabel('Edit Shipping Address'));
     this.setDefaultAddressCheckbox = page.getByText('Set as default address');
   }
 

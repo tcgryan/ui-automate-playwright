@@ -12,7 +12,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
       
     }
     await use(await response.json());
-  }
+  },
 });
 
 interface MyFixtures {
