@@ -1,5 +1,5 @@
 import { FullConfig } from "@playwright/test";
-import mysql from 'mysql2/promise';
+import * as mysql from 'mysql2/promise';
 
 export default async function globalSetup(config: FullConfig) {
   console.log('hello from global setup!')

@@ -31,7 +31,7 @@ test.describe('authenticated user checkout tests', () => {
       cvv: '123',
     }
 
-    await cartPage.goto();
+    cartPage.goto();
 
     await cartPage.checkout();
 
@@ -90,7 +90,7 @@ test.describe('authenticated shipping address tests', () => {
 
   test('shipping section displays default address', async ({ page, cartSetup, checkoutPage, request }) => {
     const response = await getUserAddresses(request);
-    
+
   });
 
   test('address form appears when user has no addresses saved', async ({ page, cartSetup, checkoutPage }) => {
@@ -135,5 +135,5 @@ test.describe('authenticated shipping address tests', () => {
 
   test('addresses are correctly ordered in all addresses modal', async ({ page, cartSetup, checkoutPage }) => {
 
-  });
+  })
 });
