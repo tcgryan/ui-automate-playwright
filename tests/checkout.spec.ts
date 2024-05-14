@@ -1,10 +1,7 @@
 import { test, expect } from '../fixtures/fixtures';
 
 test.describe('authenticated user checkout tests', () => {
-  test('domestic user can checkout with credit card from ui', { annotation: {
-    type: 'domestic',
-    description: 'This test is for domestic users'
-  } }, async ({ cartSetup, page, cartPage, reviewPage }, testInfo) => {
+  test('domestic user can checkout with credit card from ui', async ({ cartSetup, page, cartPage, reviewPage }, testInfo) => {
     const cardDetails = {
       cardNumber: '4111111111111111',
       expMonth: '06 June',
@@ -73,8 +70,27 @@ test.describe.skip('general checkout tests', () => {
   });
 });
 
-test.describe.skip('shipping address tests', () => {
-  test('', async () => {
+test.describe('authenticated shipping address tests', () => {
+  test('set as default checkbox is disabled when default address is selected', async ({ page, cartSetup, checkoutPage, editAddressForm }) => {
+    await checkoutPage.goto();
+    await checkoutPage.editShippingAddress();
+    await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
     
+    const address = checkoutPage.getAddress(0);
+    await address.editAddress();
+    await expect(editAddressForm.setDefaultAddressCheckbox).toBeChecked();
+
+    await editAddressForm.cancel();
+
+    const address2 = checkoutPage.getAddress(1);
+    await address2.editAddress();
+    await expect(editAddressForm.setDefaultAddressCheckbox).not.toBeChecked();
+
+    await editAddressForm.cancel();
+
+    await expect(checkoutPage.setDefaultAddressCheckbox).toBeEnabled();
+
+    await address.selectAddress();    
+    await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
   });
 });

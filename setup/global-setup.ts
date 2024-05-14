@@ -8,8 +8,8 @@ export default async function globalSetup(config: FullConfig) {
   //   const connection = await mysql.createConnection({ 
   //     host: 'stglsnr1.tcgplayer.local',
   //     user: 'TestingWhiz',
-  //     // password: 'T3$t1nG',
-  //     // database: 'TCGStoreStaging',
+  //     password: 'T3$t1nG',
+  //     database: 'TCGStoreStaging',
   //     insecureAuth: true,
 
   //   });

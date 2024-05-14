@@ -10,7 +10,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   workerStorageState: [async ({ account }, use) => {
     const id = test.info().parallelIndex;
     const role = test.info().annotations[0]?.type ?? 'domestic';
-    const fileName = path.resolve(process.cwd(), `data/auth/${role}/${id}.json`);
+    const fileName = path.resolve(process.cwd(), `data/auth/${process.env.TEST_ENV}/${role}/${id}.json`);
 
     if (fs.existsSync(fileName)) {
       // Reuse existing authentication state if any.
@@ -61,7 +61,6 @@ interface Account {
 }
 
 interface MyFixtures {
-  // account: Account;
 }
 
 interface MyWorkerFixtures {

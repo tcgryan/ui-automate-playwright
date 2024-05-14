@@ -1,9 +1,9 @@
 {
   "cookies": [
     {
-      "name": "TCGAuthTicket_AWSSTG",
-      "value": "B3332265ADA2A97980574EECF1DD78BCB99C337F297AD972FA804182DF500D85259456946BAA8F43438F007891E55B5F8AD187C6B8E37AB63AB80847AD4501F64BD3380529FEEEF230002CADA840DB12BA99F941F83E155E62FB88DBB7F15816F38B87CB",
-      "domain": ".tcgplayer-stg.com",
+      "name": "TCGAuthTicket_AWSQA",
+      "value": "EC5EE6C681AF448D2B7778C8E57D5A7166F3925D7392B1AE367460264C09C3CCEFFA7120958DDF9EA177F2CE535B30FDAAC7D2E25F5D4480EA7901390D0C9932CC1E63A691FC8E2E31D5FF2BFA55C3FBE007A139AB6FC56FF6198640E8519E052933EC11",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": true,
@@ -13,17 +13,17 @@
     {
       "name": "BuyerRevalidationKey",
       "value": "",
-      "domain": ".tcgplayer-stg.com",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
-      "expires": 1715627797,
+      "expires": 1715655165,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
-      "name": "StoreCart_AWSSTG",
-      "value": "CK%3Dd6ec5a7a6d414f7dab389c77f7497601%26Ignore%3Dfalse",
-      "domain": ".tcgplayer-stg.com",
+      "name": "StoreCart_AWSQA",
+      "value": "CK%3Dfb4509f152b34fd193a934b8f3889d26%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,
@@ -31,9 +31,9 @@
       "sameSite": "Lax"
     },
     {
-      "name": "StoreSaveForLater_AWSSTG",
-      "value": "SFLK%3Da9c08b96cad34ca4bb2001f9487f7897%26Ignore%3Dfalse",
-      "domain": ".tcgplayer-stg.com",
+      "name": "StoreSaveForLater_AWSQA",
+      "value": "SFLK%3D7ebc82ef4dda4f7fbeb64197e08779b9%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,
@@ -43,7 +43,7 @@
     {
       "name": "setting",
       "value": "CD%3DUS%26M%3D1",
-      "domain": ".tcgplayer-stg.com",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,

@@ -46,9 +46,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
 
 interface MyFixtures {
   cartSetup: string;
-  dbSetup: string;
 }
 
 interface MyWorkerFixtures {
-  workerStorageState: string;
 }

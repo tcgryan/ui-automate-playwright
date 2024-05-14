@@ -1,11 +1,11 @@
 import { APIRequestContext, APIResponse } from "@playwright/test";
 
 export async function getUserInfo(request: APIRequestContext): Promise<APIResponse> {
-  return await request.get('https://mpapi.tcgplayer-stg.com/v2/user?isGuest=false');
+  return await request.get(`${process.env.MARKETPLACE_API}/v2/user?isGuest=false`);
 }
 
 export async function login(request: APIRequestContext, data: LoginRequest) {
-  await request.post('https://mpapi.tcgplayer-stg.com/v3/login/signin', {
+  await request.post(`${process.env.MARKETPLACE_API}/v3/login/signin`, {
     data: data
   });
 }

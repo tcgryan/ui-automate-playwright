@@ -15,7 +15,7 @@ export class CartPage {
   }
 
   async goto() {
-    await this.page.goto('https://www.tcgplayer-stg.com/cart');
+    await this.page.goto(process.env.CART_URL!);
   }
 
   async checkout() {
