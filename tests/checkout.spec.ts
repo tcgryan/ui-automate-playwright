@@ -1,9 +1,7 @@
 /* eslint-disable playwright/expect-expect */
-import { createRandomDomesticAddressBook, createRandomInternationalAddressBook } from 'helpers';
+import { createRandomDomesticAddressBook } from 'helpers';
 import { test, expect } from 'fixtures/fixtures';
-import { addAddress, getDefaultUserAddress, getUserAddresses } from 'helpers/api';
-import { faker } from '@faker-js/faker';
-import { CheckoutAddress } from 'page-objects/components/checkout-address';
+import { getDefaultUserAddress } from 'helpers/api';
 import { AddressDetails } from 'page-objects';
 
 test.describe('authenticated user checkout tests', () => {
@@ -54,7 +52,7 @@ test.describe('authenticated user checkout tests', () => {
   });
 });
 
-test.describe.skip('guest user checkout tests', () => {
+test.describe('guest user checkout tests', () => {
   test.use({
     storageState: undefined
   });
@@ -67,7 +65,7 @@ test.describe.skip('guest user checkout tests', () => {
 
 });
 
-test.describe.skip('general checkout tests', () => {
+test.describe('general checkout tests', () => {
   test('post - 200 from order submission', async ({ page, cartSetup }) => {
   });
 
@@ -79,7 +77,7 @@ test.describe.skip('general checkout tests', () => {
 });
 
 test.describe('authenticated shipping address tests', () => {
-  test('set as default checkbox is disabled when default address is selected', async ({ page, cartSetup, checkoutPage }) => {
+  test('set as default checkbox is disabled when default address is selected', async ({ cartSetup, addressSetup, checkoutPage }) => {
     await checkoutPage.goto();
     await checkoutPage.editShippingAddress();
 
@@ -95,7 +93,7 @@ test.describe('authenticated shipping address tests', () => {
     await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
   });
 
-  test('shipping section displays default address', async ({ cartSetup, checkoutPage, request }) => {
+  test('shipping section displays default address', async ({ cartSetup, addressSetup, checkoutPage, request }) => {
     await checkoutPage.goto();
     const defaultAddress = await getDefaultUserAddress(request);
 
@@ -103,7 +101,7 @@ test.describe('authenticated shipping address tests', () => {
     expect(selectedAddress).toContain(`${defaultAddress.addressLine1} ${defaultAddress.city}, ${defaultAddress.stateProvinceRegion}`);
   });
 
-  test('user can add new address when having a default address', async ({ page, cartSetup, checkoutPage, addressForm }) => {
+  test('user can add new address when having a default address', async ({ cartSetup, addressSetup, checkoutPage, addressForm }) => {
     const addressBook = createRandomDomesticAddressBook();
     const { firstName, lastName, addressLine1: address, city, stateProvinceRegion: state, zipCode: zip } = addressBook;
     const addressDetails: AddressDetails = { firstName, lastName, address, city, state, zip, country: 'United States' };
@@ -114,8 +112,9 @@ test.describe('authenticated shipping address tests', () => {
     await addressForm.fillAddress(addressDetails);
   });
 
-  test('user can select different existing address when having a default address', async ({ page, cartSetup, addressSetup, checkoutPage }) => {
+  test('user can select different existing address when having a default address', async ({ cartSetup, addressSetup, checkoutPage }) => {
     await checkoutPage.goto();
+    await checkoutPage.editShippingAddress();
     const address = checkoutPage.getAddress(1);
     await address.selectAddress();
 

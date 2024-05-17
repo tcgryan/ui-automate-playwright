@@ -32,12 +32,24 @@ export async function getDefaultUserAddress(request: APIRequestContext): Promise
    return defaultAddress;
 }
 
-export async function deleteAllAddresses(request: APIRequestContext): Promise<APIResponse> {
-   return await request.delete(`${process.env.ADDRESS_API}/v2/UserAddressBooks`);
+export async function addAddress(request: APIRequestContext, address: UserAddressBook): Promise<void> {
+   await request.post(`${process.env.ADDRESS_API}/v2/UserAddressBooks/add`, {
+      data: address,
+      params: {
+         ignoreCorrections: true
+      }
+   });
 }
 
-export async function addAddress(request: APIRequestContext, address: UserAddressBook): Promise<APIResponse> {
-   return await request.post(`${process.env.ADDRESS_API}/v2/UserAddressBooks/add`, {
-      data: address
-   });
+export async function deleteAddress(request: APIRequestContext, addressBookId: number): Promise<void> {
+   await request.delete(`${process.env.ADDRESS_API}/v2/UserAddressBooks/delete/${addressBookId}`);
+}
+
+export async function deleteAllAddresses(request: APIRequestContext): Promise<void> {
+   const addresses = getUserAddresses(request);
+
+   for (const address of await addresses) {
+      await deleteAddress(request, address.id);
+   }
+   
 }
