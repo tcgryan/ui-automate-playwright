@@ -1,17 +1,17 @@
 import { test as baseTest } from '@playwright/test';
-import { getUserAddresses } from '../helpers/api';
+import { addAddress, getUserAddresses } from 'helpers/api';
+import { createRandomDomesticAddressBook } from 'helpers';
 
 export * from '@playwright/test';
 
 export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   addressSetup: async ({ request }, use) => {
-    const response = await getUserAddresses(request);
-    // const addresses = (await response.json()).results[0];
+    const addresses = await getUserAddresses(request);
 
-    // // if (addresses.length < 1) {
+    await addAddress(request, createRandomDomesticAddressBook());
+    if (addresses.length < 11) {
       
-    // // }
-    await use(await response.json());
+    }
   },
 });
 

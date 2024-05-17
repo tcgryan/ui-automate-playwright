@@ -18,7 +18,7 @@ export class Snackbar {
   }
 
   async dismissSnackbarWithMouse() {
-    this.dismissButton.click();
+    await this.dismissButton.click();
   }
 }
 

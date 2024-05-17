@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "TCGAuthTicket_AWSQA",
-      "value": "28F1F91F6C6DC62180F58645B114559FB0364C49DBE60579EFC07D2821D0DE4BBDD36A95FCC34DA758FC794D292ED36452941FE8E845927E8373EB6A3F86DE25A3E13D48F430CD08008E3367EBAA0054ECBD024C211DD70AA0C5AC3AC4CD9A95408B2B18",
+      "value": "E7948D7EDA20D3C3111609CD8488F947A5B8338E7AA94DE32B8E35224C41814CD4C8817159543F26EA562A0D72147D43F5CF8FBBDAC51425355E3303849A5466897902E9D8BEDBC6E408D68543B8118563A46E82E86CC483EB1B8596E5A151EF4F16FB2D84125F8CFC3160DDB7B1C1C31268073CF7C79239154774125BA959F8D456B08E",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
@@ -15,14 +15,24 @@
       "value": "",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
-      "expires": 1715806360,
+      "expires": 1715806398,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "StoreCart_AWSQA",
-      "value": "CK%3Dfb4509f152b34fd193a934b8f3889d26%26Ignore%3Dfalse",
+      "value": "CK%3D6aa4284eafcc4e68b1d2e228074f6939%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "StoreSaveForLater_AWSQA",
+      "value": "SFLK%3De485019312af4a419846c10a646baadb%26Ignore%3Dfalse",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,

@@ -34,8 +34,10 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
       isMobileAppLogin: false
     };
 
+    // send request
     await login(context, loginRequest);
 
+    // save storage state
     await context.storageState({ path: fileName });
     await context.dispose();
     await use(fileName);
@@ -43,16 +45,16 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   account: [async ({}, use) => {
     const id = test.info().parallelIndex;
     const role = test.info().annotations[0]?.type ?? 'domestic';
-    const account = await acquireAccount(id, role);
+    const account = acquireAccount(id, role);
     await use(account);
   }, { scope: 'worker' }],
 });
 
-async function acquireAccount(id: number, role: string): Promise<Account>{
+function acquireAccount(id: number, role: string): Account {
   const fileName = path.join(process.cwd(), `/data/${role}-users.json`);
   const data = fs.readFileSync(fileName, 'utf8');
-  const accounts: Account[] = JSON.parse(data);
-  return accounts[id]
+  const accounts: Account[] = JSON.parse(data) as Account[];
+  return accounts[id];
 }
 
 interface Account {

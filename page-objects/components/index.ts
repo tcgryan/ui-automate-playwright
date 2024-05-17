@@ -1,2 +1,2 @@
 export * from './snackbar';
-export * from './edit-address-form';
+export * from './address-form';

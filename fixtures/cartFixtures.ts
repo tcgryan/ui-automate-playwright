@@ -6,7 +6,8 @@ export * from '@playwright/test';
 export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   cartSetup: async ({ request }, use) => {
     const response = await getUserInfo(request);
-    let { cartKey, externalUserId, username } = (await response.json()).results[0];
+    let { cartKey } = (await response.json()).results[0];
+    const { externalUserId, username } = (await response.json()).results[0];
 
     if (username === '') {
       const response = await createAnonymousCart(request);
@@ -40,12 +41,12 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
 
     await bulkAddToCart(request, cartKey, addItemsRequest);
 
-    await use(await response.json());
+    await use();
   },
 });
 
 interface MyFixtures {
-  cartSetup: string;
+  cartSetup: void;
 }
 
 interface MyWorkerFixtures {

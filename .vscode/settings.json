@@ -1,21 +1,5 @@
 {
-  "playwright.workspaceSettings": {
-    "configs": [
-      {
-        "relativeConfigFile": "playwright.config.ts",
-        "selected": true,
-        "enabled": true,
-        "projects": [
-          {
-            "name": "chromium",
-            "enabled": true
-          },
-          {
-            "name": "Mobile Chrome",
-            "enabled": false
-          }
-        ]
-      }
-    ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
   }
 }

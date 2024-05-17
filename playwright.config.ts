@@ -14,10 +14,10 @@ dotenv.config({ path: `.env.${process.env.TEST_ENV}`});
 const viewport = { 
   width: 1920,
   height: 1080
-}
+};
 
 export default defineConfig({
-  globalSetup: require.resolve('./setup/global-setup.ts'),
+  // globalSetup: require.resolve('./setup/global-setup.ts'),
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,

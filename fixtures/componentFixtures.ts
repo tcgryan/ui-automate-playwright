@@ -1,19 +1,19 @@
 import { test as base } from '@playwright/test';
 import { Snackbar } from '../page-objects';
-import { EditAddressForm } from '../page-objects/components/edit-address-form';
+import { AddressForm } from '../page-objects/components/address-form';
 
 export const test = base.extend<MyFixtures>({
   snackbar: async ({ page }, use) => {
     const snackbar = new Snackbar(page);
     await use(snackbar);
   },
-  editAddressForm: async ({ page }, use) => {
-    const checkoutPage = new EditAddressForm(page);
-    await use(checkoutPage);
+  addressForm: async ({ page }, use) => {
+    const addressForm = new AddressForm(page);
+    await use(addressForm);
   }
 });
 
 interface MyFixtures {
   snackbar: Snackbar;
-  editAddressForm: EditAddressForm;
+  addressForm: AddressForm;
 }

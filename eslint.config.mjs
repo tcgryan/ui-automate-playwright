@@ -14,6 +14,7 @@ export default tseslint.config(
     rules: {
       semi: 'error',
       '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-unused-vars': 'off'
     },
     languageOptions: {
       parserOptions: {

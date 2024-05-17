@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class EditAddressForm {
+export class AddressForm {
   readonly page: Page;
   readonly firstNameInput: Locator;
   readonly lastNameInput: Locator;
@@ -32,10 +32,10 @@ export class EditAddressForm {
   async fillAddress(address: AddressDetails) {
     await this.firstNameInput.fill(address.firstName);
     await this.lastNameInput.fill(address.lastName);
-    await this.countryInput.fill(address.country);
+    // await this.countryInput.selectOption(address.country);
     await this.addressInput.fill(address.address);
     await this.cityInput.fill(address.city);
-    await this.stateInput.fill(address.state);
+    await this.stateInput.selectOption(address.state);
     await this.zipInput.fill(address.zip);
   }
 
@@ -48,7 +48,7 @@ export class EditAddressForm {
   }
 }
 
-interface AddressDetails {
+export interface AddressDetails {
   firstName: string;
   lastName: string;
   address: string;
@@ -56,5 +56,4 @@ interface AddressDetails {
   state: string;
   zip: string;
   country: string;
-  phone: string;
 }

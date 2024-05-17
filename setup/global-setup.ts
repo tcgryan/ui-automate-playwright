@@ -1,8 +1,8 @@
-import { FullConfig } from "@playwright/test";
-import * as mysql from 'mysql2/promise';
+// import { FullConfig } from "@playwright/test";
+// import * as mysql from 'mysql2/promise';
 
-export default async function globalSetup(config: FullConfig) {
-  console.log('hello from global setup!')
+// export default async function globalSetup(config: FullConfig) {
+//   console.log('hello from global setup!')
 
   // try {
   //   const connection = await mysql.createConnection({ 
@@ -23,6 +23,7 @@ export default async function globalSetup(config: FullConfig) {
   // } catch (error) {
   //   console.error(error);
   // }
-}
+// }
 
+//  "connectionString": "Data Source= qalsnr1.tcgplayer.local;multisubnetfailover=true;Initial Catalog=TCGStoreQA;Persist Security Info=True;User ID=TestingWhiz;Password=T3$t1nG",
 //  "connectionString": "Data Source= stglsnr1.tcgplayer.local;multisubnetfailover=true;Initial Catalog=TCGStoreStaging;Persist Security Info=True;User ID=TestingWhiz;Password=T3$t1nG",

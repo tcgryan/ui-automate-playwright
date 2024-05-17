@@ -15,7 +15,7 @@ export class CartPage {
   }
 
   async goto() {
-    await this.page.goto(process.env.CART_URL!);
+    await this.page.goto(process.env.CART_URL);
   }
 
   async checkout() {
