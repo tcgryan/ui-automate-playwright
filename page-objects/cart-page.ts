@@ -1,6 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class CartPage {
+  readonly baseUrl = process.env.CART_URL ?? '';
   readonly page: Page;
   readonly checkOutButton: Locator;
   readonly clearCartButton: Locator;
@@ -15,7 +16,7 @@ export class CartPage {
   }
 
   async goto() {
-    await this.page.goto(process.env.CART_URL);
+    await this.page.goto(this.baseUrl);
   }
 
   async checkout() {

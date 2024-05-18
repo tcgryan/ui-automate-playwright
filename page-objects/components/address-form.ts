@@ -30,13 +30,14 @@ export class AddressForm {
   }
 
   async fillAddress(address: AddressDetails) {
-    await this.firstNameInput.fill(address.firstName);
-    await this.lastNameInput.fill(address.lastName);
+    await this.firstNameInput.fill(address.firstName ?? '');
+    await this.lastNameInput.fill(address.lastName ?? '');
     // await this.countryInput.selectOption(address.country);
-    await this.addressInput.fill(address.address);
-    await this.cityInput.fill(address.city);
-    await this.stateInput.selectOption(address.state);
-    await this.zipInput.fill(address.zip);
+    await this.addressInput.fill(address.address ?? '');
+    await this.cityInput.fill(address.city ?? '');
+    await this.stateInput.selectOption(address.state ?? '');
+    await this.zipInput.fill(address.zip ?? '');
+
   }
 
   async save() {
@@ -49,11 +50,11 @@ export class AddressForm {
 }
 
 export interface AddressDetails {
-  firstName: string;
-  lastName: string;
-  address: string;
-  city: string;
-  state: string;
-  zip: string;
-  country: string;
+  firstName?: string;
+  lastName?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
+  country?: string;
 }

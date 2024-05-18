@@ -1,5 +1,5 @@
 import { test as baseTest } from '@playwright/test';
-import { addAddress, deleteAddress, deleteAllAddresses, getUserAddresses, getUserInfo } from 'helpers/api';
+import { addAddress, deleteAddress, getUserAddresses, getUserInfo } from 'helpers/api';
 import { createRandomDomesticAddressBook } from 'helpers';
 
 export * from '@playwright/test';
@@ -16,7 +16,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     
     while (addresses.length < 5) {
       const address = createRandomDomesticAddressBook();
-      address.externalUserId = externalUserId;
+      address.externalUserId = externalUserId!;
       await addAddress(request, address);
       addresses = (await getUserAddresses(request));
     }
@@ -24,7 +24,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     const defaultAddress = addresses.find(address => address.isDefaultAddress);
     if (!defaultAddress) {
       const address = createRandomDomesticAddressBook(true);
-      address.externalUserId = externalUserId;
+      address.externalUserId = externalUserId!;
       await addAddress(request, address);
     }
 
@@ -36,7 +36,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     
     while (addresses.length < 10) {
       const address = createRandomDomesticAddressBook();
-      address.externalUserId = externalUserId;
+      address.externalUserId = externalUserId!;
       await addAddress(request, address);
       addresses = (await getUserAddresses(request));
     }
@@ -44,24 +44,15 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     await use();
   },
   noDefaultAddressSetup: async ({ request }, use) => {
-    const externalUserId = (await getUserInfo(request)).externalUserId;
     const addresses = await getUserAddresses(request);
     
     const defaultAddress = addresses.find(address => address.isDefaultAddress);
 
-    await deleteAddress(request, defaultAddress.id);
+    if (defaultAddress) {
+      await deleteAddress(request, defaultAddress.id);
+    }
 
     await use();
-
-    // await deleteAllAddresses(request);
-    // addresses = await getUserAddresses(request);
-    // while (addresses.length < 5) {
-    //   const address = createRandomDomesticAddressBook();
-    //   address.externalUserId = externalUserId;
-    //   await addAddress(request, address);
-    //   addresses = (await getUserAddresses(request));
-    // }
-
   },
   
 });

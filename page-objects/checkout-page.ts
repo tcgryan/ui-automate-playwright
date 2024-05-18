@@ -1,7 +1,8 @@
-import { Locator, Page } from "@playwright/test";
+import type { Locator, Page } from "@playwright/test";
 import { CheckoutAddress } from "./components/checkout-address";
 
 export class CheckoutPage {
+  readonly baseUrl = process.env.CHECKOUT_URL ?? '';
   readonly page: Page;
   readonly editShippingAddressButton: Locator;
   readonly setDefaultAddressCheckbox: Locator;
@@ -19,7 +20,7 @@ export class CheckoutPage {
   }
 
   async goto() {
-    await this.page.goto(process.env.CHECKOUT_URL);
+    await this.page.goto(this.baseUrl);
   }
 
   async editShippingAddress() {

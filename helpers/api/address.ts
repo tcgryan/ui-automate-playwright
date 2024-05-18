@@ -4,7 +4,7 @@ import { UserAddressBook, UserAddressBookApiResult, UserAddressBookListApiResult
 export async function getUserAddresses(request: APIRequestContext): Promise<UserAddressBook[]> {
    const response = await request.get(`${process.env.ADDRESS_API}/v2/UserAddressBooks`);
    const responseBody = await response.json() as UserAddressBookListApiResult;
-   const [addresses] = responseBody.results;
+   const [ addresses ] = responseBody.results ?? [];
    return addresses;
 }
 
@@ -15,7 +15,7 @@ export async function getUserAddress(request: APIRequestContext, addressBookId: 
       }
    });
    const responseBody = await response.json() as UserAddressBookApiResult;
-   const [address] = responseBody.results;
+   const [ address ] = responseBody.results ?? [];
 
    return address;
 }
@@ -27,7 +27,7 @@ export async function getDefaultUserAddress(request: APIRequestContext): Promise
       }
    });
    const responseBody = await response.json() as UserAddressBookApiResult;
-   const [defaultAddress] = responseBody.results;
+   const [ defaultAddress ] = responseBody.results ?? [];
 
    return defaultAddress;
 }

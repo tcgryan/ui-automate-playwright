@@ -4,7 +4,7 @@ import { SignInData, SignInResult, UserInfo, UserInfoApiResult } from "models/ma
 export async function getUserInfo(request: APIRequestContext): Promise<UserInfo> {
   const response = await request.get(`${process.env.MARKETPLACE_API}/v2/user?isGuest=false`);
   const responseBody = await response.json() as UserInfoApiResult;
-  const [userInfo] = responseBody.results;
+  const [ userInfo ] = responseBody.results ?? [];
   return userInfo;
 }
 

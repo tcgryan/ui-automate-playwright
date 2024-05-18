@@ -13,14 +13,14 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     if (userName === '') {
       const response = await createAnonymousCart(request);
 
-      cartKey = response.cartKey;
+      cartKey = response.cartKey!;
     }
 
     if (!cartKey) 
     {
-      const response = await createUserCart(request, externalUserId);
+      const response = await createUserCart(request, externalUserId ?? '');
 
-      cartKey = response.cartKey;
+      cartKey = response.cartKey!;
     }
 
     await clearCart(request, cartKey);

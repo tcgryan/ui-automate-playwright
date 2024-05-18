@@ -18,7 +18,9 @@ export class CheckoutAddress {
   }
 
   async formattedAddress() {
-    return `${await this.addressLine1.textContent()} ${(await this.addressLine2.textContent()).slice(0, -6)}`;
+    const addressLine1Text =  await this.addressLine1.textContent() ?? '';
+    const addressLine2Text =  await this.addressLine2.textContent() ?? '';
+    return `${addressLine1Text} ${addressLine2Text.slice(0, -6)}`;
   }
 
   async selectAddress() {
