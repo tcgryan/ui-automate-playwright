@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./"
+    "baseUrl": "./",
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    /* Strictness */
+    // "strict": true,
+    // "noUncheckedIndexedAccess": true,
+    // "noImplicitOverride": true,
+    "lib": ["es2022"]
   }
 }
