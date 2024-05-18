@@ -7,6 +7,7 @@ export class CheckoutPage {
   readonly setDefaultAddressCheckbox: Locator;
   readonly selectedAddress: Locator;
   readonly newAddressButton: Locator;
+  readonly useThisAddressButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -14,6 +15,7 @@ export class CheckoutPage {
     this.setDefaultAddressCheckbox = page.getByText('Set as default address');
     this.selectedAddress = page.getByTestId('checkout-ship-addr-selected');
     this.newAddressButton = page.getByText('New Address');
+    this.useThisAddressButton = page.getByText('Use This Address');
   }
 
   async goto() {
@@ -30,6 +32,14 @@ export class CheckoutPage {
 
   async addNewAddress() {
     await this.newAddressButton.click();
+  }
+
+  async useThisAddress() {
+    await this.useThisAddressButton.click();
+  }
+
+  async setAsDefaultAddress() {
+    await this.setDefaultAddressCheckbox.click();
   }
 
   getAddress(n: number): CheckoutAddress {

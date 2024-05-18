@@ -1,7 +1,7 @@
 import { faker, fakerEN_CA, fakerJA } from '@faker-js/faker';
 import { UserAddressBook } from 'models';
 
-export function createRandomDomesticAddressBook(): UserAddressBook {
+export function createRandomDomesticAddressBook(isDefault: boolean = false): UserAddressBook {
   return new UserAddressBook({
     id: faker.number.int({ max: 500000 }),
     externalUserId: '',
@@ -18,7 +18,7 @@ export function createRandomDomesticAddressBook(): UserAddressBook {
     lastUsedAt: undefined,
     isEasyPostVerified: false,
     easyPostShippingAddressId: undefined,
-    isDefaultAddress: false,
+    isDefaultAddress: isDefault,
   });
 }
 

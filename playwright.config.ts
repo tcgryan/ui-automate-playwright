@@ -1,7 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from "dotenv";
 
-dotenv.config({ path: `.env.${process.env.TEST_ENV}`});
+const env = process.env.NODE_ENV ?? 'qa';
+// const env = 'staging';
+dotenv.config({ path: `.env.${env}`});
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv

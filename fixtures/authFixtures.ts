@@ -2,6 +2,7 @@ import { test as baseTest, request } from '@playwright/test';
 import * as fs  from 'fs';
 import * as path from 'path';
 import { login } from '../helpers/api';
+import { SignInData } from 'models/marketplace';
 
 export * from '@playwright/test';
 
@@ -10,7 +11,8 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   workerStorageState: [async ({ account }, use) => {
     const id = test.info().parallelIndex;
     const role = test.info().annotations[0]?.type ?? 'domestic';
-    const fileName = path.resolve(process.cwd(), `data/auth/${process.env.TEST_ENV}/${role}/${id}.json`);
+    const fileName = path.resolve(process.cwd(), `data/auth/${process.env.NODE_ENV}/${role}/${id}.json`);
+    // const fileName = path.resolve(process.cwd(), `data/auth/staging/${role}/${id}.json`);
 
     if (fs.existsSync(fileName)) {
       // Reuse existing authentication state if any.
@@ -21,7 +23,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     // Important: make sure we authenticate in a clean environment by unsetting storage state.
     const context = await request.newContext({ storageState: undefined });
 
-    const loginRequest = {
+    const loginRequest = new SignInData({
       username: account.username,
       password: account.password,
       captchaToken: '20000000-aaaa-bbbb-cccc-000000000002',
@@ -32,7 +34,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
       isRevalidation: false,
       isLongTermRevalidation: false,
       isMobileAppLogin: false
-    };
+    });
 
     // send request
     await login(context, loginRequest);

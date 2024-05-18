@@ -12,9 +12,13 @@ export class CheckoutAddress {
     this.root = root;
     this.addressSelector = root.getByRole('radio');
     this.name = root.locator('.address-block').locator('h4');
-    this.addressLine1 = root.locator('address-block').locator('p').nth(0);
-    this.addressLine2 = root.locator('address-block').locator('p').nth(1);
+    this.addressLine1 = root.locator('.address-block').locator('p').nth(0);
+    this.addressLine2 = root.locator('.address-block').locator('p').nth(1);
     this.editButton = root.getByLabel('Edit Payment');
+  }
+
+  async formattedAddress() {
+    return `${await this.addressLine1.textContent()} ${(await this.addressLine2.textContent()).slice(0, -6)}`;
   }
 
   async selectAddress() {

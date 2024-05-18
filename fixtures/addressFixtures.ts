@@ -6,8 +6,8 @@ export * from '@playwright/test';
 
 export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   addressSetup: async ({ request }, use) => {
+    const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
-    const [ { externalUserId } ] = addresses;
 
     if (addresses.length === 10) {
       const { id } = addresses[-1];
@@ -21,11 +21,18 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
       addresses = (await getUserAddresses(request));
     }
 
+    const defaultAddress = addresses.find(address => address.isDefaultAddress);
+    if (!defaultAddress) {
+      const address = createRandomDomesticAddressBook(true);
+      address.externalUserId = externalUserId;
+      await addAddress(request, address);
+    }
+
     await use();
   },
   maxAddressSetup: async ({ request }, use) => {
+    const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
-    const [ { externalUserId } ] = addresses;
     
     while (addresses.length < 10) {
       const address = createRandomDomesticAddressBook();
@@ -37,14 +44,24 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     await use();
   },
   noDefaultAddressSetup: async ({ request }, use) => {
-    //todo 
-    const userInfo = await getUserInfo(request);
+    const externalUserId = (await getUserInfo(request)).externalUserId;
     const addresses = await getUserAddresses(request);
-    const [ { externalUserId } ] = addresses;
     
-    await deleteAllAddresses(request); 
+    const defaultAddress = addresses.find(address => address.isDefaultAddress);
+
+    await deleteAddress(request, defaultAddress.id);
 
     await use();
+
+    // await deleteAllAddresses(request);
+    // addresses = await getUserAddresses(request);
+    // while (addresses.length < 5) {
+    //   const address = createRandomDomesticAddressBook();
+    //   address.externalUserId = externalUserId;
+    //   await addAddress(request, address);
+    //   addresses = (await getUserAddresses(request));
+    // }
+
   },
   
 });

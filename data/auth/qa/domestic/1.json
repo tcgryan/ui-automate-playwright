@@ -1,9 +1,9 @@
 {
   "cookies": [
     {
-      "name": "TCGAuthTicket_AWSSTG",
-      "value": "0C8A97A2D9840CC5B946FEC38F5024E26641853FD76B7E7CEB8AD138C2D0078F53C17F34B7FF250507F19A51700616E130DF38AC17FB4AD98D9AB7CB95FC97ADB20BD0EA2A89D93537B82D794AEBB674DC2B19C7204B4FE870313148AE188A27F1422432",
-      "domain": ".tcgplayer-stg.com",
+      "name": "TCGAuthTicket_AWSQA",
+      "value": "DDE5F8B1CCEBC9183C3C589E70A7A6399A829F51665FC530D5B83685BA4DA88640DE61954E54B303E6B9FD3B8E88A58E45F58841B63D2CB23778370F4A9F1C1B808BB807F721ECC62A7DBD2910DBF526E3CE73D98B16834A1300DBA05B810C267996CEADA2133F7E4B372F8505EEA6C37546DF8E",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": true,
@@ -13,17 +13,17 @@
     {
       "name": "BuyerRevalidationKey",
       "value": "",
-      "domain": ".tcgplayer-stg.com",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
-      "expires": 1716000460,
+      "expires": 1715993269,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
-      "name": "StoreCart_AWSSTG",
-      "value": "CK%3Daa741bc90fd14477962f8774a8766553%26Ignore%3Dfalse",
-      "domain": ".tcgplayer-stg.com",
+      "name": "StoreCart_AWSQA",
+      "value": "CK%3Dae3fdec94b0e4af5afb70aca980e6a38%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,
@@ -31,9 +31,9 @@
       "sameSite": "Lax"
     },
     {
-      "name": "StoreSaveForLater_AWSSTG",
-      "value": "SFLK%3Dba3ddd41f54f4f1faef41a74449aa251%26Ignore%3Dfalse",
-      "domain": ".tcgplayer-stg.com",
+      "name": "StoreSaveForLater_AWSQA",
+      "value": "SFLK%3D52a5cc07ec1e401897589d275481a17a%26Ignore%3Dfalse",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,
@@ -43,7 +43,7 @@
     {
       "name": "setting",
       "value": "CD%3DUS%26M%3D1",
-      "domain": ".tcgplayer-stg.com",
+      "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,

@@ -12,19 +12,7 @@ export async function login(request: APIRequestContext, data: SignInData): Promi
   const response = await request.post(`${process.env.MARKETPLACE_API}/v3/login/signin`, {
     data: data
   });
+  console.log(response);
   const responseBody = await response.json() as SignInResult;
   return responseBody;
-}
-
-interface LoginRequest {
-  username: string;
-  password: string;
-  captchaToken: string;
-  termsOfServiceAccepted: boolean;
-  antiforgeryToken: string;
-  validation: boolean;
-  key: string;
-  isRevalidation: boolean;
-  isLongTermRevalidation: boolean;
-  isMobileAppLogin: boolean;
 }

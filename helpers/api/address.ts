@@ -1,4 +1,4 @@
-import { APIRequestContext, APIResponse } from "@playwright/test";
+import { APIRequestContext } from "@playwright/test";
 import { UserAddressBook, UserAddressBookApiResult, UserAddressBookListApiResult } from "models";
 
 export async function getUserAddresses(request: APIRequestContext): Promise<UserAddressBook[]> {

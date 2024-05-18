@@ -7,8 +7,12 @@ test('snackbar appears when cart is cleared', async ({ cartSetup, cartPage, snac
   await expect(snackbar.snackbar).toBeVisible();
 });
 
-test.skip('other test', async ({}) => {
+test('other test', async ({ page }) => {
+  await page.goto('');
+  expect(true).toBe(true);
 });
 
-test.skip('yet another test', async ({}) => {
+test('yet another test', async ({ page }) => {
+  await page.goto('');
+  expect(true).toBe(true);
 });
