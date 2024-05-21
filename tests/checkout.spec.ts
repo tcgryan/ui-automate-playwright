@@ -1,7 +1,7 @@
 /* eslint-disable playwright/expect-expect */
 import { createRandomDomesticAddressBook } from 'helpers';
 import { test, expect } from 'fixtures/fixtures';
-import { getDefaultUserAddress, getUserAddress, getUserAddresses } from 'helpers/api';
+import { getDefaultUserAddress, getUserAddresses } from 'helpers/api';
 import { AddressDetails } from 'page-objects';
 import { UserAddressBook } from 'models';
 
@@ -162,7 +162,7 @@ test.describe('authenticated shipping address tests', () => {
 
   });
 
-  test('all addresses modal displays addresses 10 to a page', async ({ checkoutPage, addressModal }) => {
+  test('all addresses modal displays addresses 10 to a page', async ({ checkoutPage, addressModal, maxAddressSetup }) => {
     await checkoutPage.goto();
     await checkoutPage.editShippingAddress();
     await checkoutPage.viewAllAddresses();
@@ -185,7 +185,7 @@ test.describe('authenticated shipping address tests', () => {
     await expect(addressModal.nextPage).toBeDisabled();
   });
 
-  test('user can add address through all addresses modal', async ({ checkoutPage, addressModal, addressForm }) => {
+  test('user can add address through all addresses modal', async ({ checkoutPage, addressModal, addressForm, verifyAddressModal }) => {
     await checkoutPage.goto();
     await checkoutPage.editShippingAddress();
     await checkoutPage.viewAllAddresses();
@@ -198,11 +198,13 @@ test.describe('authenticated shipping address tests', () => {
     await addressForm.fillAddress(addressDetails);
     await addressForm.save();
 
+    await verifyAddressModal.useProvidedAddress();
+
     const selectedAddress = await checkoutPage.getSelectedAddress();
     expect(selectedAddress).toContain(`${address} ${city}, ${state}`);
   });
 
-  test('user can edit address through all addresses modal', async ({ checkoutPage, addressModal, addressForm }) => {
+  test('user can edit address through all addresses modal', async ({ checkoutPage, addressModal, addressForm, verifyAddressModal }) => {
     await checkoutPage.goto();
     await checkoutPage.editShippingAddress();
     await checkoutPage.viewAllAddresses();
@@ -215,6 +217,8 @@ test.describe('authenticated shipping address tests', () => {
     const addressDetails = { firstName, lastName, address, city, state, zip, country: 'United States' };
     await addressForm.fillAddress(addressDetails);
     await addressForm.save();
+
+    await verifyAddressModal.useProvidedAddress();
 
     const selectedAddress = await checkoutPage.getSelectedAddress();
     expect(selectedAddress).toContain(`${address} ${city}, ${state}`);

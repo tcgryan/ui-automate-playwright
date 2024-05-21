@@ -1,5 +1,17 @@
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
-  }
+  },
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "server": "10.10.2.146",
+      "database": "TCGStoreQA",
+      "user": "rhickey",
+      "password": "",
+      "savePassword": false,
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true
+    }
+  ]
 }

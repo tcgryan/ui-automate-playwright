@@ -17,7 +17,7 @@ export class CheckoutPage {
     this.selectedAddress = page.getByTestId('checkout-ship-addr-selected');
     this.newAddressButton = page.getByText('New Address');
     this.useThisAddressButton = page.getByText('Use This Address');
-    this.viewAllAddressesButton = page.getByText(/All \d Addresses/);
+    this.viewAllAddressesButton = page.getByText(/All \d+ Addresses/);
   }
 
   async goto() {

@@ -12,7 +12,6 @@ export async function login(request: APIRequestContext, data: SignInData): Promi
   const response = await request.post(`${process.env.MARKETPLACE_API}/v3/login/signin`, {
     data: data
   });
-  console.log(response);
   const responseBody = await response.json() as SignInResult;
   return responseBody;
 }

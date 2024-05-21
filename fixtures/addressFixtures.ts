@@ -10,7 +10,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     let addresses = await getUserAddresses(request);
 
     if (addresses.length === 10) {
-      const { id } = addresses[-1];
+      const { id } = addresses.find(address => !address.isDefaultAddress);
       await deleteAddress(request, id);
     }
     
