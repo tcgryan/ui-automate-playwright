@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "TCGAuthTicket_AWSQA",
-      "value": "A930A2F2EAA0D1C5424745BE7AAB6E85683DF79C6EB32577EA1249F2F3AEB8C57F2F4E3816B01DB9A5C63F0625533C35C7BFAF28FDC25D4B500D4E89176A5E43FA26712929584C4349ACD65645845B939601476C92D6BE4202ECD3A4EA5D94811ECA3F78",
+      "value": "FC44316C7C881B8419EACCFA3896CC10AFED5079B8AD95EC76CAF6CA3EEE1DFDF7B317E2B4683CF5690CD7DDC02B7778EB0C7666309A8C79463E179A0D1D35002E536791033C2C13FBDEA3956591EFFBFBAAF4AB1719D2CA3C7080081C627AC65852401D2FE4DA053A56385CB994DE83C75AEF90",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
@@ -15,14 +15,14 @@
       "value": "",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
-      "expires": 1716301325,
+      "expires": 1716328168,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "StoreCart_AWSQA",
-      "value": "CK%3D4251051e2634475d958f7d99e5dbdfef%26Ignore%3Dfalse",
+      "value": "CK%3D7de7d9d2cc8542af9d698c0054eaf10d%26Ignore%3Dfalse",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,
@@ -32,7 +32,7 @@
     },
     {
       "name": "StoreSaveForLater_AWSQA",
-      "value": "SFLK%3D63f246db60bb4df6a5536770b7b57bb2%26Ignore%3Dfalse",
+      "value": "SFLK%3Ddb059cfdd5104dddbeb6117c317887e5%26Ignore%3Dfalse",
       "domain": ".tcgplayer-qa.com",
       "path": "/",
       "expires": -1,

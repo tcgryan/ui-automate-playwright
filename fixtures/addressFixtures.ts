@@ -9,12 +9,12 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
 
-    if (addresses.length === 10) {
+    if (addresses.length === 25) {
       const { id } = addresses.find(address => !address.isDefaultAddress);
       await deleteAddress(request, id);
     }
     
-    while (addresses.length < 5) {
+    while (addresses.length < 10) {
       const address = createRandomDomesticAddressBook();
       address.externalUserId = externalUserId;
       await addAddress(request, address);

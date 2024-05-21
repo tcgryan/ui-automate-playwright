@@ -34,14 +34,12 @@ export class AddressForm {
     const stateName = getState(address.state);
     await this.firstNameInput.fill(address.firstName);
     await this.lastNameInput.fill(address.lastName);
-    // await this.countryInput.selectOption(address.country);
     await this.addressInput.fill(address.address);
     await this.cityInput.fill(address.city);
     await this.zipInput.fill(address.zip);
     await this.stateInput.fill('');
     await this.stateInput.pressSequentially(stateName, { timeout: 1000 });
     await this.page.getByText(stateName).click({ timeout: 1000 });
-    // await this.stateInput.selectOption(address.state);
   }
 
   async save() {
