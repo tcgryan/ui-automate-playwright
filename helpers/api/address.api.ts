@@ -46,10 +46,14 @@ export async function deleteAddress(request: APIRequestContext, addressBookId: n
 }
 
 export async function deleteAllAddresses(request: APIRequestContext): Promise<void> {
-   const addresses = getUserAddresses(request);
+   let addresses = await getUserAddresses(request);
 
-   for (const address of await addresses) {
-      await deleteAddress(request, address.id);
+   while ((addresses).length > 0) {
+      for (const address of addresses) {
+         await deleteAddress(request, address.id);
+      }
+
+      addresses = await getUserAddresses(request);
    }
    
 }

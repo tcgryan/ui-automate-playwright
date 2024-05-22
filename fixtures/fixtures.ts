@@ -7,3 +7,4 @@ import { test as componentTest } from "./componentFixtures";
 
 export const test = mergeTests(authTest, cartTest, pageTest, addressTest, componentTest);
 export * from '@playwright/test';
+// REWORK FOR GUEST

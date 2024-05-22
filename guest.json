@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "setting",
+      "value": "CD%3DUS%26M%3D1",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "TCG_GuestAuth",
+      "value": "tJ1wrWayDC2tF0Bb5UK1Xw%3D%3D%2625kmHAtRsRAe0fjTPoo%2F%2BA%3D%3D",
+      "domain": ".tcgplayer-qa.com",
+      "path": "/",
+      "expires": 1716419565,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

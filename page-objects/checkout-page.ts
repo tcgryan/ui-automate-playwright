@@ -9,15 +9,17 @@ export class CheckoutPage {
   readonly newAddressButton: Locator;
   readonly useThisAddressButton: Locator;
   readonly viewAllAddressesButton: Locator;
+  readonly checkmark: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.editShippingAddressButton = page.getByLabel('Edit', { exact: true }).or(page.getByLabel('Edit Shipping Address'));
     this.setDefaultAddressCheckbox = page.getByText('Set as default address');
     this.selectedAddress = page.getByTestId('checkout-ship-addr-selected').or(page.locator('.summary-addr-line1'));
-    this.newAddressButton = page.getByText('New Address').or(page.getByRole('button', { name: 'New Address' }));
+    this.newAddressButton = page.getByRole('button', { name: 'New Address' });
     this.useThisAddressButton = page.getByText('Use This Address');
     this.viewAllAddressesButton = page.getByText(/All \d+ Addresses/);
+    this.checkmark = page.locator('.greencheck');
   }
 
   async goto() {

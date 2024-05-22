@@ -20,7 +20,7 @@ const viewport = {
 };
 
 export default defineConfig({
-  globalSetup: require.resolve('./setup/global-setup.ts'),
+  // globalSetup: require.resolve('./setup/global-setup.ts'),
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,

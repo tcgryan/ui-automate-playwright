@@ -10,8 +10,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   storageState: ({ workerStorageState }, use) => use(workerStorageState),
   workerStorageState: [async ({ account }, use) => {
     const id = test.info().parallelIndex;
-    const role = test.info().annotations[0]?.type ?? 'domestic';
-    const fileName = path.resolve(process.cwd(), `data/auth/${process.env.NODE_ENV}/${role}/${id}.json`);
+    const fileName = path.resolve(process.cwd(), `data/auth/${process.env.NODE_ENV}/${id}.json`);
     // const fileName = path.resolve(process.cwd(), `data/auth/staging/${role}/${id}.json`);
 
     if (fs.existsSync(fileName)) {
@@ -46,14 +45,16 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   }, { scope : 'worker' }],
   account: [async ({}, use) => {
     const id = test.info().parallelIndex;
-    const role = test.info().annotations[0]?.type ?? 'domestic';
-    const account = acquireAccount(id, role);
+    const account = acquireAccount(id);
     await use(account);
   }, { scope: 'worker' }],
+  guestLogin: async () => {
+    
+  },
 });
 
-function acquireAccount(id: number, role: string): Account {
-  const fileName = path.join(process.cwd(), `/data/${role}-users.json`);
+function acquireAccount(id: number): Account {
+  const fileName = path.join(process.cwd(), `/data/users.json`);
   const data = fs.readFileSync(fileName, 'utf8');
   const accounts: Account[] = JSON.parse(data) as Account[];
   return accounts[id];
@@ -65,6 +66,7 @@ interface Account {
 }
 
 interface MyFixtures {
+  guestLogin: void;
 }
 
 interface MyWorkerFixtures {

@@ -53,19 +53,6 @@ import { UserAddressBook } from 'models';
 //   });
 // });
 
-test.describe('guest user checkout tests', () => {
-  test.use({
-    storageState: undefined
-  });
-
-  test('domestic user can checkout with credit card from ui', async ({ cartSetup, page, cartPage }) => {
-  });
-
-  test('international user can checkout with credit card from ui', async ({ cartSetup, page }) => {
-  });
-
-});
-
 test.describe('general checkout tests', () => {
   test('post - 200 from order submission', async ({ page, cartSetup }) => {
   });
@@ -83,6 +70,7 @@ test.describe('authenticated shipping address tests', () => {
   });
 
   test('set as default checkbox is disabled when default address is selected', async ({ checkoutPage, page }) => {
+    console.log(page.url());
     await checkoutPage.editShippingAddress();
 
     await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
@@ -101,10 +89,10 @@ test.describe('authenticated shipping address tests', () => {
     const defaultAddress = await getDefaultUserAddress(request);
 
     const selectedAddress = await checkoutPage.getSelectedAddress();
-    expect(selectedAddress).toContain(`${defaultAddress.addressLine1} ${defaultAddress.city}, ${defaultAddress.stateProvinceRegion}`);
+    expect(selectedAddress).toContain(`${defaultAddress.addressLine1}, ${defaultAddress.city} ${defaultAddress.stateProvinceRegion}`);
   });
 
-  test('user can add new address when having a default address', async ({ checkoutPage, addressForm }) => {
+  test('user can add new address when having a default address', async ({ checkoutPage, addressForm, verifyAddressModal }) => {
     const addressBook = createRandomDomesticAddressBook();
     const { firstName, lastName, addressLine1: address, city, stateProvinceRegion: state, zipCode: zip } = addressBook;
     const addressDetails: AddressDetails = { firstName, lastName, address, city, state, zip, country: 'United States' };
@@ -112,32 +100,24 @@ test.describe('authenticated shipping address tests', () => {
     await checkoutPage.editShippingAddress();
     await checkoutPage.addNewAddress();
     await addressForm.fillAddress(addressDetails);
+    await addressForm.save();
+    await expect(checkoutPage.checkmark).toBeVisible();
   });
 
-  test('user can select different existing address when having a default address', async ({ checkoutPage }) => {
+  test('user can select different existing address when having a default address', async ({ page, checkoutPage }) => {
     await checkoutPage.editShippingAddress();
     const address = checkoutPage.getAddress(1);
     await address.selectAddress();
     const formattedAddress = await address.formattedAddress();
-
     await checkoutPage.useThisAddress();
+
+    await page.waitForTimeout(1000);
     const selectedAddress = await checkoutPage.getSelectedAddress();
-    expect(formattedAddress).toContain(selectedAddress);
+    expect(selectedAddress).toContain(formattedAddress);
   });
 
-  test('user can select existing address when having no default address', async ({ checkoutPage, noDefaultAddressSetup }) => {
-    await expect(checkoutPage.setDefaultAddressCheckbox).toBeEnabled();
-    const address = checkoutPage.getAddress(0);
-    await expect(address.addressSelector).not.toHaveClass('selected');
-    await address.selectAddress();
-    const formattedAddress = await address.formattedAddress();
 
-    await checkoutPage.useThisAddress();
-    const selectedAddress = await checkoutPage.getSelectedAddress();
-    expect(formattedAddress).toContain(selectedAddress);
-  });
-
-  test('user can select a new default address', async ({ checkoutPage }) => {
+  test('user can select a new default address', async ({ page, checkoutPage }) => {
     await checkoutPage.editShippingAddress();
     const address = checkoutPage.getAddress(1);
     await address.selectAddress();
@@ -145,8 +125,9 @@ test.describe('authenticated shipping address tests', () => {
     await checkoutPage.setAsDefaultAddress();
 
     await checkoutPage.useThisAddress();
+    await page.waitForTimeout(1000);
     const selectedAddress = await checkoutPage.getSelectedAddress();
-    expect(formattedAddress).toContain(selectedAddress);
+    expect(selectedAddress).toContain(formattedAddress);
 
     await checkoutPage.editShippingAddress();
     await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
@@ -245,11 +226,54 @@ test.describe('authenticated shipping address tests', () => {
     await expect(address3.addressLine1).toContainText(sortedAddresses[2].addressLine1);
   });
 
-  
+  test('user can select existing address when having no default address', async ({ checkoutPage, noDefaultAddressSetup }) => {
+    await expect(checkoutPage.setDefaultAddressCheckbox).toBeEnabled();
+    const address = checkoutPage.getAddress(0);
+    await expect(address.addressSelector).not.toHaveClass('selected');
+    await address.selectAddress();
+    const formattedAddress = await address.formattedAddress();
+
+    await checkoutPage.useThisAddress();
+    const selectedAddress = await checkoutPage.getSelectedAddress();
+    expect(selectedAddress).toContain(formattedAddress);
+  });
+
   test('address form appears when user has no addresses saved', async ({ checkoutPage, noAddressSetup, addressForm }) => {
     await checkoutPage.goto();
     await expect(addressForm.firstNameInput).toBeVisible();
   });
+});
+
+test.describe('guest user checkout tests', () => {
+  test.use({ storageState: 'guest.json' });
+  // test.beforeAll(({  }) => {
+
+  // });
+
+  test.beforeEach(async ({ cartSetup, checkoutPage }) => {
+    // go to pdp
+    // add to cart
+    // go to cart
+    // checkout
+    // guest login
+    
+    await checkoutPage.goto();
+  });
+
+  test('domestic user can checkout with credit card from ui', async ({ page, request }) => {
+    // // await page.goto('https://www.tcgplayer-qa.com');
+    // const response = await request.post('https://mpapi.tcgplayer-qa.com/v2/User/createguest', {
+    //   data: {
+    //     emailAddress: 'guest+1231@guest.com',
+    //     captchaToken: "20000000-aaaa-bbbb-cccc-000000000002",
+    //     termsOfServiceAccepted: true
+    //   }
+    // });
+    // console.log(await response.json());
+    // await request.storageState({ path: 'C:\\Users\\thickey\\source\\repos\\ui-automate-playwright\\data\\auth\\qa\\guest.json' });
+    // await request.dispose();
+  });
+
 
 });
 

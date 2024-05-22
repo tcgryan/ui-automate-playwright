@@ -28,6 +28,7 @@ export class AddressForm {
     this.setDefaultAddressCheckbox = page.getByTestId('addressFormDefaultAddrCheckbox').locator('span').nth(1);
     this.cancelButton = page.getByTestId('addressFormCancelBtn');
     this.saveButton = page.getByTestId('addressFormSubmitBtn');
+    page.getByText('Kansas', { exact: true });
   }
 
   async fillAddress(address: AddressDetails) {
@@ -38,8 +39,8 @@ export class AddressForm {
     await this.cityInput.fill(address.city);
     await this.zipInput.fill(address.zip);
     await this.stateInput.fill('');
-    await this.stateInput.pressSequentially(stateName, { timeout: 1000 });
-    await this.page.getByText(stateName).click({ timeout: 1000 });
+    await this.stateInput.pressSequentially(stateName);
+    await this.page.getByText(stateName, { exact: true }).click();
   }
 
   async save() {
