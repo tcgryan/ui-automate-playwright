@@ -14,8 +14,8 @@ export class CheckoutPage {
     this.page = page;
     this.editShippingAddressButton = page.getByLabel('Edit', { exact: true }).or(page.getByLabel('Edit Shipping Address'));
     this.setDefaultAddressCheckbox = page.getByText('Set as default address');
-    this.selectedAddress = page.getByTestId('checkout-ship-addr-selected');
-    this.newAddressButton = page.getByText('New Address');
+    this.selectedAddress = page.getByTestId('checkout-ship-addr-selected').or(page.locator('.summary-addr-line1'));
+    this.newAddressButton = page.getByText('New Address').or(page.getByRole('button', { name: 'New Address' }));
     this.useThisAddressButton = page.getByText('Use This Address');
     this.viewAllAddressesButton = page.getByText(/All \d+ Addresses/);
   }

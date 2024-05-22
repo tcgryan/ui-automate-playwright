@@ -83,7 +83,6 @@ test.describe('authenticated shipping address tests', () => {
   });
 
   test('set as default checkbox is disabled when default address is selected', async ({ checkoutPage, page }) => {
-    console.log(page.url());
     await checkoutPage.editShippingAddress();
 
     await expect(checkoutPage.setDefaultAddressCheckbox).toBeDisabled();
