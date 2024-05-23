@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/fixtures';
+import { test, expect } from 'fixtures/fixtures';
 
 test('snackbar appears when cart is cleared', async ({ cartSetup, cartPage, snackbar }) => {
   console.log(cartSetup);

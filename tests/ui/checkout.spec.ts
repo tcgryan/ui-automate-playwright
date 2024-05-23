@@ -1,3 +1,4 @@
+/* eslint-disable playwright/no-wait-for-timeout */
 /* eslint-disable playwright/expect-expect */
 import { createRandomDomesticAddressBook } from 'helpers';
 import { test, expect } from 'fixtures/fixtures';
@@ -245,7 +246,7 @@ test.describe('authenticated shipping address tests', () => {
 });
 
 test.describe('guest user checkout tests', () => {
-  test.use({ storageState: 'guest.json' });
+  test.use({ storageState: { cookies: [], origins: [] } });
   // test.beforeAll(({  }) => {
 
   // });
