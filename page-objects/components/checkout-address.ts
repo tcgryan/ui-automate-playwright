@@ -18,10 +18,6 @@ export class CheckoutAddress {
   }
 
   async formattedAddress() {
-    const line1 = await this.addressLine1.textContent();
-    const line2 = await this.addressLine2.textContent();
-    const fixedLine2 = line2.replace(/\d+/, '');
-
     return `${await this.addressLine1.textContent()}, ${(await this.addressLine2.textContent()).replace(/\d+-\d+|\d+/, '').replace(',', '').trim()}`;
   }
 

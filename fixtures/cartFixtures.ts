@@ -1,10 +1,10 @@
 import { test as baseTest } from '@playwright/test';
 import { bulkAddToCart, clearCart, createAnonymousCart, createUserCart, getUserInfo } from 'helpers/api';
-import { BulkAddItemsRequest, BulkAddItemsRequest_ItemRequest } from 'models';
+import { BulkAddItemsRequest, BulkAddItemsRequest_ItemRequest } from 'models/cart';
 
 export * from '@playwright/test';
 
-export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
+export const test = baseTest.extend<MyFixtures>({
   cartSetup: async ({ request }, use) => {
     const userInfo = await getUserInfo(request);
     let { cartKey } = userInfo; 
@@ -47,9 +47,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   },
 });
 
-interface MyFixtures {
+type MyFixtures = {
   cartSetup: void;
 }
 
-interface MyWorkerFixtures {
-}

@@ -60,16 +60,16 @@ function acquireAccount(id: number): Account {
   return accounts[id];
 }
 
-interface Account {
+type Account = {
   username: string;
   password: string;
 }
 
-interface MyFixtures {
+type MyFixtures = {
   guestLogin: void;
 }
 
-interface MyWorkerFixtures {
+type MyWorkerFixtures = {
   workerStorageState: string;
   account: Account;
 }

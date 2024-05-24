@@ -1,5 +1,5 @@
 import { faker, fakerEN_CA, fakerJA } from '@faker-js/faker';
-import { UserAddressBook } from 'models';
+import { UserAddressBook } from 'models/address';
 
 export function createRandomDomesticAddressBook(isDefault: boolean = false): UserAddressBook {
   return new UserAddressBook({

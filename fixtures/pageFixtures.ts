@@ -18,7 +18,7 @@ export const test = base.extend<MyFixtures>({
   }
 });
 
-interface MyFixtures {
+type MyFixtures = {
   cartPage: CartPage;
   reviewPage: ReviewPage;
   checkoutPage: CheckoutPage;

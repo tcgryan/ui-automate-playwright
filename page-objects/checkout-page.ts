@@ -3,23 +3,34 @@ import { CheckoutAddress } from "./components/checkout-address";
 
 export class CheckoutPage {
   readonly page: Page;
+  // Shipping Address
   readonly editShippingAddressButton: Locator;
   readonly setDefaultAddressCheckbox: Locator;
   readonly selectedAddress: Locator;
   readonly newAddressButton: Locator;
   readonly useThisAddressButton: Locator;
   readonly viewAllAddressesButton: Locator;
-  readonly checkmark: Locator;
+  readonly addressCheckmark: Locator;
+  readonly selectShippingAddressButton: Locator;
+
+  // Payment Method
+  readonly editPaymentMethodButton: Locator;
+  readonly paymentCheckmark: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.editShippingAddressButton = page.getByLabel('Edit', { exact: true }).or(page.getByLabel('Edit Shipping Address'));
+
+    // Shipping Address
+    this.editShippingAddressButton = page.getByText('Shipping Address').getByLabel('Edit').or(page.getByLabel('Edit Shipping Address'));
     this.setDefaultAddressCheckbox = page.getByText('Set as default address');
     this.selectedAddress = page.getByTestId('checkout-ship-addr-selected').or(page.locator('.summary-addr-line1'));
     this.newAddressButton = page.getByRole('button', { name: 'New Address' });
     this.useThisAddressButton = page.getByText('Use This Address');
     this.viewAllAddressesButton = page.getByText(/All \d+ Addresses/);
-    this.checkmark = page.locator('.greencheck');
+    this.addressCheckmark = page.getByText('Shipping Address').locator('.greencheck');
+    this.selectShippingAddressButton = page.getByRole('button', { name: 'Select Shipping Address' });
+
+    // Payment Method
   }
 
   async goto() {
@@ -48,6 +59,10 @@ export class CheckoutPage {
 
   async viewAllAddresses() { 
     await this.viewAllAddressesButton.click();
+  }
+
+  async selectShippingAddress() { 
+    await this.selectShippingAddressButton.click();
   }
 
   getAddress(n: number): CheckoutAddress {

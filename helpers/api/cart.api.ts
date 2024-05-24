@@ -1,5 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
-import { AddListoResult, AddListoResultApiResult, BulkAddItemsRequest, BulkAddItemsResponseApiResult, BulkAddItemsResponse_ItemResult, CartItemResponse, CartItemResponseListApiResult, CreatedCartKey, CreatedCartKeyApiResult } from "models";
+import { AddListoResult, AddListoResultApiResult, BulkAddItemsRequest, BulkAddItemsResponseApiResult, BulkAddItemsResponse_ItemResult, CartItemResponse, CartItemResponseListApiResult, CreatedCartKey, CreatedCartKeyApiResult } from "models/cart";
 
 // CartCreate
 

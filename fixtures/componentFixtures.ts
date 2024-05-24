@@ -23,7 +23,7 @@ export const test = base.extend<MyFixtures>({
   },
 });
 
-interface MyFixtures {
+type MyFixtures = {
   snackbar: Snackbar;
   addressForm: AddressForm;
   addressModal: AddressModal;

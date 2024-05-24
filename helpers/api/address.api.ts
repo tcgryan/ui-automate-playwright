@@ -1,5 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
-import { UserAddressBook, UserAddressBookApiResult, UserAddressBookListApiResult } from "models";
+import { UserAddressBook, UserAddressBookApiResult, UserAddressBookListApiResult } from "models/address";
 
 export async function getUserAddresses(request: APIRequestContext): Promise<UserAddressBook[]> {
    const response = await request.get(`${process.env.ADDRESS_API}/v2/UserAddressBooks`);
@@ -48,7 +48,7 @@ export async function deleteAddress(request: APIRequestContext, addressBookId: n
 export async function deleteAllAddresses(request: APIRequestContext): Promise<void> {
    let addresses = await getUserAddresses(request);
 
-   while ((addresses).length > 0) {
+   while (addresses.length > 0) {
       for (const address of addresses) {
          await deleteAddress(request, address.id);
       }

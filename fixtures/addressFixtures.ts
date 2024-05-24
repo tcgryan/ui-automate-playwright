@@ -4,7 +4,7 @@ import { createRandomDomesticAddressBook } from 'helpers';
 
 export * from '@playwright/test';
 
-export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
+export const test = baseTest.extend<MyFixtures>({
   addressSetup: async ({ request }, use) => {
     const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
@@ -34,7 +34,7 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
     const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
     
-    while (addresses.length < 10) {
+    while (addresses.length < 11) {
       const address = createRandomDomesticAddressBook();
       address.externalUserId = externalUserId;
       await addAddress(request, address);
@@ -60,12 +60,9 @@ export const test = baseTest.extend<MyFixtures, MyWorkerFixtures>({
   
 });
 
-interface MyFixtures {
+type MyFixtures = {
   addressSetup: void;
   maxAddressSetup: void;
   noDefaultAddressSetup: void;
   noAddressSetup: void;
-}
-
-interface MyWorkerFixtures {
 }
