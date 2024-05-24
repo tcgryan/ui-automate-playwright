@@ -1,7 +1,7 @@
 import { test as baseTest, request } from '@playwright/test';
 import * as fs  from 'fs';
 import * as path from 'path';
-import { login } from '../helpers/api';
+import { login } from 'helpers/api';
 import { SignInData } from 'models/marketplace';
 
 export * from '@playwright/test';

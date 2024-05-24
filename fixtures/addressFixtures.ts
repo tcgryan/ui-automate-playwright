@@ -34,7 +34,7 @@ export const test = baseTest.extend<MyFixtures>({
     const externalUserId = (await getUserInfo(request)).externalUserId;
     let addresses = await getUserAddresses(request);
     
-    while (addresses.length < 11) {
+    while (addresses.length < 10) {
       const address = createRandomDomesticAddressBook();
       address.externalUserId = externalUserId;
       await addAddress(request, address);

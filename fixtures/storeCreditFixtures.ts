@@ -3,7 +3,7 @@ import { test as baseTest } from '@playwright/test';
 export * from '@playwright/test';
 
 export const test = baseTest.extend<MyFixtures>({
-  paymentSetup: async ({}, use) => {
+  storeCreditSetup: async ({}, use) => {
     
    
     // Setup code here
@@ -14,5 +14,6 @@ export const test = baseTest.extend<MyFixtures>({
 });
 
 type MyFixtures = {
-  paymentSetup: void;
+  storeCreditSetup: void;
 }
+

@@ -1,5 +1,8 @@
-export * from './cart.api';
-export * from './marketplace.api';
 export * from './address.api';
-// export * from './payments';
-// export * from './wishlist';
+export * from './cart.api';
+export * from './checkout.api';
+export * from './marketplace.api';
+export * from './mp-search.api';
+export * from './payments.api';
+export * from './store-credit.api';
+export * from './wishlist.api';
