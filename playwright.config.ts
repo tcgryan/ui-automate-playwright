@@ -45,9 +45,26 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'Chromium',
       use: { 
         browserName: 'chromium',
+        // viewport can be set here when using a specific device that comes with a viewport
+        // viewport: viewport
+      },
+    },
+    {
+      name: 'Firefox',
+      use: { 
+        browserName: 'firefox',
+        // viewport can be set here when using a specific device that comes with a viewport
+        // viewport: viewport
+      },
+      timeout: 60000
+    },
+    {
+      name: 'Safari',
+      use: { 
+        browserName: 'webkit',
         // viewport can be set here when using a specific device that comes with a viewport
         // viewport: viewport
       },
@@ -57,10 +74,14 @@ export default defineConfig({
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 5'] },
     },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'Mobile Firefox',
+      use: { ...devices['Pixel 5'] , browserName: 'firefox'},
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+    },
 
     /* Test against branded browsers. */
     // {
