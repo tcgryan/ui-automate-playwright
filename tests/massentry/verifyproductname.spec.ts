@@ -1,0 +1,1 @@
+// Verify correct product name is displayed in shopping cart

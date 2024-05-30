@@ -1,0 +1,1 @@
+  // It directs to Shopping Cart Page, verify the shopping cart content and summary section are displayed
