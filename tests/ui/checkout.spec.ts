@@ -289,21 +289,35 @@ test.describe('guest user checkout tests', () => {
     
     await checkoutPage.goto();
   });
-
-  test('domestic user can checkout with credit card from ui', async ({ page, request }) => {
-    // // await page.goto('https://www.tcgplayer-qa.com');
-    // const response = await request.post('https://mpapi.tcgplayer-qa.com/v2/User/createguest', {
-    //   data: {
-    //     emailAddress: 'guest+1231@guest.com',
-    //     captchaToken: "20000000-aaaa-bbbb-cccc-000000000002",
-    //     termsOfServiceAccepted: true
-    //   }
-    // });
-    // console.log(await response.json());
-    // await request.storageState({ path: 'C:\\Users\\thickey\\source\\repos\\ui-automate-playwright\\data\\auth\\qa\\guest.json' });
-    // await request.dispose();
-  });
-
-
 });
+
+// test.describe('authenticated payment method tests', () => { 
+//   test.beforeEach(async ({ cartSetup, addressSetup, checkoutPage }) => {
+//     await checkoutPage.goto();
+//   });
+
+//   test('user can select a different payment method', async ({ checkoutPage }) => {
+//     // Remove code from this test
+//   });
+
+//   test('user can add a new payment method', async ({ checkoutPage, paymentForm }) => {
+//     // Remove code from this test
+//   });
+
+//   test('user can edit a payment method', async ({ checkoutPage, paymentForm }) => {
+//     // Remove code from this test
+//   });
+
+//   test('user can delete a payment method', async ({ checkoutPage }) => {
+//     // Remove code from this test
+//   });
+
+//   test('user can set a payment method as default', async ({ checkoutPage }) => {
+//     // Remove code from this test
+//   });
+
+//   test('payment method section displays default payment method', async ({ checkoutPage, request }) => {
+//     // Remove code from this test
+//   });
+// });
 

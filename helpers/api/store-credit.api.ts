@@ -4,15 +4,19 @@ import { DecimalApiResult, StoreCreditQueue, StoreCreditQueueApiResult, StringAp
 
 // Gift Card
 export async function redeemGiftCard(request: APIRequestContext, giftCardNumber: string): Promise<string> {
-  const response = await request.get(`${process.env.STORE_CREDIT_API}/v1/GiftCard/Redeem`, {
-    params: {
-      giftCardNumber: giftCardNumber
-    }
-  });
-
-  const responseBody = await response.json() as StringApiResult;
-  const [result] = responseBody.results;
-  return result;
+  try {
+    const response = await request.get(`${process.env.STORE_CREDIT_API}/v1/GiftCard/Redeem`, {
+      params: {
+        giftCardNumber: giftCardNumber
+      }
+    });
+  
+    const { results: [result] } = await response.json() as  StringApiResult;
+    return result;
+    
+  } catch (error) {
+    
+  }
 }
 
 // Store Credit
@@ -24,8 +28,7 @@ export async function useStoreCredit(request: APIRequestContext, amount: number)
     }
   });
 
-  const responseBody = await response.json() as StoreCreditQueueApiResult;
-  const [result] = responseBody.results;
+  const { results: [result] } = await response.json() as StoreCreditQueueApiResult;
   return result;
 }
 
@@ -43,7 +46,6 @@ export async function getStoreCreditByExternalUserId(request: APIRequestContext,
     }
   
   });
-  const responseBody = await response.json() as DecimalApiResult;
-  const [result] = responseBody.results;
+  const { results: [result] } = await response.json() as DecimalApiResult;
   return result;
 }
