@@ -1,1 +1,0 @@
-   // Get default text from the placeholder and verify it contains correct content 

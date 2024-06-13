@@ -1,1 +1,0 @@
-// Click Add to cart without any input and verify error message " Enter some product names and quantities below. "

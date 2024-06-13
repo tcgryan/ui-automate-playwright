@@ -2,17 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from "dotenv";
 
 const env = process.env.NODE_ENV;
-// const env = 'staging';
 dotenv.config({ path: `.env.${env}`});
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 
 const viewport = { 
   width: 1920,

@@ -1,1 +1,0 @@
-    // Get all Printing checkbox list and verify they are correct
