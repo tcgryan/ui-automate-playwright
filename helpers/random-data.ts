@@ -1,7 +1,7 @@
 import { faker, fakerEN_CA, fakerJA } from '@faker-js/faker';
 import { UserAddressBook } from 'models/address';
 
-export function createRandomDomesticAddressBook(isDefault: boolean = false): UserAddressBook {
+export function createRandomDomesticAddressBook(isDefault: boolean = false, isAbbreviated: boolean = true): UserAddressBook {
   return new UserAddressBook({
     id: faker.number.int({ max: 500000 }),
     externalUserId: '',
@@ -10,7 +10,35 @@ export function createRandomDomesticAddressBook(isDefault: boolean = false): Use
     addressLine1: faker.location.streetAddress(),
     addressLine2: undefined,
     city: faker.location.city(),
-    stateProvinceRegion: faker.location.state({abbreviated: true}),
+    stateProvinceRegion: faker.location.state({abbreviated: isAbbreviated}),
+    zipCode: faker.location.zipCode(),
+    countryCode: 'US',
+    phone: undefined,
+    createdAt: new Date(),
+    lastUsedAt: undefined,
+    isEasyPostVerified: false,
+    easyPostShippingAddressId: undefined,
+    isDefaultAddress: isDefault,
+  });
+}
+
+type AddressOptions = {
+  isDefault?: boolean;
+  isAbbreviated: boolean;
+}
+
+export function createRandomDomesticAddressBookWithOptions(options: AddressOptions): UserAddressBook {
+  const { isDefault = false, isAbbreviated } = options;
+  
+  return new UserAddressBook({
+    id: faker.number.int({ max: 500000 }),
+    externalUserId: '',
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    addressLine1: faker.location.streetAddress(),
+    addressLine2: undefined,
+    city: faker.location.city(),
+    stateProvinceRegion: faker.location.state({abbreviated: isAbbreviated}),
     zipCode: faker.location.zipCode(),
     countryCode: 'US',
     phone: undefined,
@@ -59,4 +87,8 @@ export function createRandomInternationalAddressBook(): UserAddressBook {
     easyPostShippingAddressId: undefined,
     isDefaultAddress: false,
   });
+}
+
+export function createRandomEmail(): string {
+  return faker.internet.email({ provider: 'automation.com' });
 }

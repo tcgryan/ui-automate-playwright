@@ -1,0 +1,30 @@
+config:
+  target: https://www.tcgplayer-qa.com
+  phases:
+  - duration: 5
+    arrivalRate: 1
+    name: Warm up phase
+  - duration: 10
+    arrivalRate: 1
+    name: Ramp up load
+  plugins:
+    ensure: {}
+  ensure:
+    thresholds:
+      - http.response_time.p99: 100
+      - http.response_time.p95: 75
+  # Load the Playwright engine:
+  engines:
+    playwright:
+      defaultNavigationTimeout: 120000
+      launchOptions:
+        headless: true
+      contextOptions:
+        viewport:
+          width: 1920
+          height: 1080
+  # Path to TypeScript file that defines Playwright test functions
+  processor: './flows.ts'
+scenarios:
+  - engine: playwright
+    testFunction: 'createAccountAndCheckout'
