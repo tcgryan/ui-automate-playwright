@@ -5,6 +5,7 @@ import { test, expect } from 'fixtures/fixtures';
 import { getDefaultUserAddress, getUserAddresses } from 'helpers/api';
 import { AddressDetails } from 'page-objects';
 import { UserAddressBook } from 'models/address';
+import { CheckoutSetup } from 'tests/load/flows';
 
 // test.describe('authenticated user checkout tests', () => {
 //   test('domestic user can checkout with credit card from ui', async ({ cartSetup, page, cartPage, reviewPage }, testInfo) => {
@@ -320,6 +321,4 @@ test.describe('guest user checkout tests', () => {
 //     // Remove code from this test
 //   });
 // });
-
-
 

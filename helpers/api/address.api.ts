@@ -2,14 +2,14 @@ import { APIRequestContext } from "@playwright/test";
 import { UserAddressBook, UserAddressBookApiResult, UserAddressBookListApiResult } from "models/address";
 
 export async function getUserAddresses(request: APIRequestContext): Promise<UserAddressBook[]> {
-   const response = await request.get(`${process.env.ADDRESS_API}/v2/UserAddressBooks`);
+   const response = await request.get(`https://addressbook-api.tcgplayer-stg.com/v2/UserAddressBooks`);
    const responseBody = await response.json() as UserAddressBookListApiResult;
    const [addresses] = responseBody.results;
    return addresses;
 }
 
 export async function getUserAddress(request: APIRequestContext, addressBookId: number): Promise<UserAddressBook> {
-   const response = await request.get(`${process.env.ADDRESS_API}/v2/UserAddressBooks/userAddressBook`, {
+   const response = await request.get(`https://addressbook-api.tcgplayer-stg.com/v2/UserAddressBooks/userAddressBook`, {
       params: {
          addressBookId: addressBookId
       }
@@ -21,7 +21,7 @@ export async function getUserAddress(request: APIRequestContext, addressBookId: 
 }
 
 export async function getDefaultUserAddress(request: APIRequestContext): Promise<UserAddressBook> {
-   const response = await request.get(`${process.env.ADDRESS_API}/v2/UserAddressBooks/userAddressBook`, {
+   const response = await request.get(`https://addressbook-api.tcgplayer-stg.com/v2/UserAddressBooks/userAddressBook`, {
       params: {
          default: true
       }
@@ -33,7 +33,7 @@ export async function getDefaultUserAddress(request: APIRequestContext): Promise
 }
 
 export async function addAddress(request: APIRequestContext, address: UserAddressBook): Promise<void> {
-   await request.post(`${process.env.ADDRESS_API}/v2/UserAddressBooks/add`, {
+   await request.post(`https://addressbook-api.tcgplayer-stg.com/v2/UserAddressBooks/add`, {
       data: address,
       params: {
          ignoreCorrections: true
@@ -42,7 +42,7 @@ export async function addAddress(request: APIRequestContext, address: UserAddres
 }
 
 export async function deleteAddress(request: APIRequestContext, addressBookId: number): Promise<void> {
-   await request.delete(`${process.env.ADDRESS_API}/v2/UserAddressBooks/delete/${addressBookId}`);
+   await request.delete(`https://addressbook-api.tcgplayer-stg.com/v2/UserAddressBooks/delete/${addressBookId}`);
 }
 
 export async function deleteAllAddresses(request: APIRequestContext): Promise<void> {

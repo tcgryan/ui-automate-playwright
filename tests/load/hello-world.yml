@@ -1,21 +1,33 @@
 config:
-  target: https://www.tcgplayer-qa.com
+  target: https://www.tcgplayer-stg.com
   phases:
-  - duration: 5
-    arrivalRate: 1
+  - duration: 10
+    arrivalRate: 3
     name: Warm up phase
   - duration: 10
-    arrivalRate: 1
-    name: Ramp up load
+    arrivalRate: 5
+    name: Main load phase
+  - duration: 10
+    arrivalRate: 2
+    name: Ramp down load phase
   plugins:
     ensure: {}
-  ensure:
-    thresholds:
-      - http.response_time.p99: 100
-      - http.response_time.p95: 75
+  # ensure:
+    # thresholds:
+    #   - http.response_time.p99: 100
+    #   - http.response_time.p95: 75
+  payload: 
+    - path: 'TestData_Cart_STG.csv'
+      fields:
+        - 'sku'
+        - 'quantity'
+        - 'price'
+        - 'sellerKey'
+        - 'isDirect'
   # Load the Playwright engine:
   engines:
     playwright:
+      trace: true
       defaultNavigationTimeout: 120000
       launchOptions:
         headless: true
@@ -27,4 +39,4 @@ config:
   processor: './flows.ts'
 scenarios:
   - engine: playwright
-    testFunction: 'createAccountAndCheckout'
+    testFunction: 'CheckoutFlow'

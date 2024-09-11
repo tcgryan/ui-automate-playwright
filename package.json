@@ -21,8 +21,10 @@
     "typescript-eslint": "^7.9.0"
   },
   "dependencies": {
+    "csv-parse": "^5.5.6",
     "dotenv": "^16.4.5",
     "mssql": "^10.0.2",
-    "mysql2": "^3.9.7"
+    "mysql2": "^3.9.7",
+    "redis": "^4.7.0"
   }
 }

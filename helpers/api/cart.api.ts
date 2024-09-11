@@ -4,7 +4,7 @@ import { AddListoResult, AddListoResultApiResult, BulkAddItemsRequest, BulkAddIt
 // CartCreate
 
 export async function createUserCart(request: APIRequestContext, externalUserId: string): Promise<CreatedCartKey> {
-  const response = await request.post(`${process.env.CART_API}/v1/create/usercart`, {
+  const response = await request.post(`https://capi-awsstg.tcgplayer-stg.com/v1/create/usercart`, {
     data: {
       externalUserId: externalUserId
     }
@@ -15,7 +15,7 @@ export async function createUserCart(request: APIRequestContext, externalUserId:
 }
 
 export async function createAnonymousCart(request: APIRequestContext): Promise<CreatedCartKey> {
-  const response = await request.post(`${process.env.CART_API}/v1/create/anonymouscart`);
+  const response = await request.post(`https://capi-awsstg.tcgplayer-stg.com/v1/create/anonymouscart`);
   const responseBody = await response.json() as CreatedCartKeyApiResult;
   const [ cartKey ] = responseBody.results;
   return cartKey;
@@ -26,7 +26,7 @@ export async function createAnonymousCart(request: APIRequestContext): Promise<C
 // CartItems
 
 export async function getCartItems(request: APIRequestContext, cartKey: string): Promise<CartItemResponse[]> {
-  const response = await request.get(`${process.env.CART_API}/v1/${cartKey}/items`);
+  const response = await request.get(`https://capi-awsstg.tcgplayer-stg.com/v1/${cartKey}/items`);
   const responseBody = await response.json() as CartItemResponseListApiResult;
 
   const [ cartItems ] = responseBody.results;
@@ -34,7 +34,7 @@ export async function getCartItems(request: APIRequestContext, cartKey: string):
 }
 
 export async function bulkAddToCart(request: APIRequestContext, cartKey: string, addItemsRequest: BulkAddItemsRequest): Promise<BulkAddItemsResponse_ItemResult[]> {
-  const response = await request.post(`${process.env.CART_API}/v1/${cartKey}/items/bulkadd`, {
+  const response = await request.post(`https://capi-awsstg.tcgplayer-stg.com/v1/${cartKey}/items/bulkadd`, {
     data: addItemsRequest
   });
   const responseBody = await response.json() as BulkAddItemsResponseApiResult;
@@ -44,13 +44,13 @@ export async function bulkAddToCart(request: APIRequestContext, cartKey: string,
 }
 
 export async function clearCart(request: APIRequestContext, cartKey: string): Promise<void> {
-  await request.delete(`${process.env.CART_API}/v1/${cartKey}/items/all`);
+  await request.delete(`https://capi-awsstg.tcgplayer-stg.com/v1/${cartKey}/items/all`);
 }
 
 // CartListo
 
 export async function addListo(request: APIRequestContext, cartKey: string): Promise<AddListoResult> {
-  const response = await request.post(`${process.env.CART_API}/v1/${cartKey}/listo/add`);
+  const response = await request.post(`https://capi-awsstg.tcgplayer-stg.com/v1/${cartKey}/listo/add`);
   const responseBody = await response.json() as AddListoResultApiResult;
   const [ result ] = responseBody.results;
   return result;

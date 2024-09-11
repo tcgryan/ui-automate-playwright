@@ -1,0 +1,451 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.0": 1,
+      "vusers.created": 1,
+      "browser.page.codes.200": 182,
+      "browser.http_requests": 195,
+      "browser.page.codes.204": 13,
+      "vusers.failed": 0,
+      "vusers.completed": 1,
+      "browser.page.codes.403": 1,
+      "browser.page.codes.304": 1,
+      "browser.page.codes.422": 1
+    },
+    "rates": {},
+    "firstCounterAt": 1725913639459,
+    "firstHistogramAt": 1725913641323,
+    "lastCounterAt": 1725913651858,
+    "lastHistogramAt": 1725913651858,
+    "firstMetricAt": 1725913639459,
+    "lastMetricAt": 1725913651858,
+    "period": 1725913650000,
+    "summaries": {
+      "browser.page.INP.https://www.tcgplayer-stg.com/order-submitted": {
+        "min": 56,
+        "max": 56,
+        "count": 1,
+        "mean": 56,
+        "p50": 56.3,
+        "median": 56.3,
+        "p75": 56.3,
+        "p90": 56.3,
+        "p95": 56.3,
+        "p99": 56.3,
+        "p999": 56.3
+      },
+      "browser.page.CLS.https://www.tcgplayer-stg.com/order-submitted": {
+        "min": 0.1,
+        "max": 0.1,
+        "count": 1,
+        "mean": 0.1,
+        "p50": 0.1,
+        "median": 0.1,
+        "p75": 0.1,
+        "p90": 0.1,
+        "p95": 0.1,
+        "p99": 0.1,
+        "p999": 0.1
+      },
+      "vusers.session_length": {
+        "min": 12399.3,
+        "max": 12399.3,
+        "count": 1,
+        "mean": 12399.3,
+        "p50": 12459.8,
+        "median": 12459.8,
+        "p75": 12459.8,
+        "p90": 12459.8,
+        "p95": 12459.8,
+        "p99": 12459.8,
+        "p999": 12459.8
+      },
+      "browser.page.TTFB.https://www.tcgplayer-stg.com/checkout": {
+        "min": 335.3,
+        "max": 335.3,
+        "count": 1,
+        "mean": 335.3,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      },
+      "browser.page.FCP.https://www.tcgplayer-stg.com/checkout": {
+        "min": 2174.3,
+        "max": 2174.3,
+        "count": 1,
+        "mean": 2174.3,
+        "p50": 2186.8,
+        "median": 2186.8,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2186.8,
+        "p99": 2186.8,
+        "p999": 2186.8
+      },
+      "browser.page.LCP.https://www.tcgplayer-stg.com/checkout": {
+        "min": 2174.3,
+        "max": 2174.3,
+        "count": 1,
+        "mean": 2174.3,
+        "p50": 2186.8,
+        "median": 2186.8,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2186.8,
+        "p99": 2186.8,
+        "p999": 2186.8
+      },
+      "browser.page.FID.https://www.tcgplayer-stg.com/checkout": {
+        "min": 4.2,
+        "max": 4.2,
+        "count": 1,
+        "mean": 4.2,
+        "p50": 4.2,
+        "median": 4.2,
+        "p75": 4.2,
+        "p90": 4.2,
+        "p95": 4.2,
+        "p99": 4.2,
+        "p999": 4.2
+      }
+    },
+    "histograms": {
+      "browser.page.INP.https://www.tcgplayer-stg.com/order-submitted": {
+        "min": 56,
+        "max": 56,
+        "count": 1,
+        "mean": 56,
+        "p50": 56.3,
+        "median": 56.3,
+        "p75": 56.3,
+        "p90": 56.3,
+        "p95": 56.3,
+        "p99": 56.3,
+        "p999": 56.3
+      },
+      "browser.page.CLS.https://www.tcgplayer-stg.com/order-submitted": {
+        "min": 0.1,
+        "max": 0.1,
+        "count": 1,
+        "mean": 0.1,
+        "p50": 0.1,
+        "median": 0.1,
+        "p75": 0.1,
+        "p90": 0.1,
+        "p95": 0.1,
+        "p99": 0.1,
+        "p999": 0.1
+      },
+      "vusers.session_length": {
+        "min": 12399.3,
+        "max": 12399.3,
+        "count": 1,
+        "mean": 12399.3,
+        "p50": 12459.8,
+        "median": 12459.8,
+        "p75": 12459.8,
+        "p90": 12459.8,
+        "p95": 12459.8,
+        "p99": 12459.8,
+        "p999": 12459.8
+      },
+      "browser.page.TTFB.https://www.tcgplayer-stg.com/checkout": {
+        "min": 335.3,
+        "max": 335.3,
+        "count": 1,
+        "mean": 335.3,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      },
+      "browser.page.FCP.https://www.tcgplayer-stg.com/checkout": {
+        "min": 2174.3,
+        "max": 2174.3,
+        "count": 1,
+        "mean": 2174.3,
+        "p50": 2186.8,
+        "median": 2186.8,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2186.8,
+        "p99": 2186.8,
+        "p999": 2186.8
+      },
+      "browser.page.LCP.https://www.tcgplayer-stg.com/checkout": {
+        "min": 2174.3,
+        "max": 2174.3,
+        "count": 1,
+        "mean": 2174.3,
+        "p50": 2186.8,
+        "median": 2186.8,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2186.8,
+        "p99": 2186.8,
+        "p999": 2186.8
+      },
+      "browser.page.FID.https://www.tcgplayer-stg.com/checkout": {
+        "min": 4.2,
+        "max": 4.2,
+        "count": 1,
+        "mean": 4.2,
+        "p50": 4.2,
+        "median": 4.2,
+        "p75": 4.2,
+        "p90": 4.2,
+        "p95": 4.2,
+        "p99": 4.2,
+        "p999": 4.2
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.0": 1,
+        "vusers.created": 1
+      },
+      "rates": {},
+      "firstCounterAt": 1725913639459,
+      "lastCounterAt": 1725913639459,
+      "firstMetricAt": 1725913639459,
+      "lastMetricAt": 1725913639459,
+      "period": "1725913630000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "browser.page.codes.200": 159,
+        "browser.http_requests": 169,
+        "browser.page.codes.204": 10,
+        "browser.page.codes.403": 1,
+        "browser.page.codes.304": 1,
+        "browser.page.codes.422": 1
+      },
+      "rates": {},
+      "firstCounterAt": 1725913640591,
+      "firstHistogramAt": 1725913641323,
+      "lastCounterAt": 1725913648312,
+      "lastHistogramAt": 1725913645963,
+      "firstMetricAt": 1725913640591,
+      "lastMetricAt": 1725913648312,
+      "period": "1725913640000",
+      "summaries": {
+        "browser.page.TTFB.https://www.tcgplayer-stg.com/checkout": {
+          "min": 335.3,
+          "max": 335.3,
+          "count": 1,
+          "mean": 335.3,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        },
+        "browser.page.FCP.https://www.tcgplayer-stg.com/checkout": {
+          "min": 2174.3,
+          "max": 2174.3,
+          "count": 1,
+          "mean": 2174.3,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "browser.page.LCP.https://www.tcgplayer-stg.com/checkout": {
+          "min": 2174.3,
+          "max": 2174.3,
+          "count": 1,
+          "mean": 2174.3,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "browser.page.FID.https://www.tcgplayer-stg.com/checkout": {
+          "min": 4.2,
+          "max": 4.2,
+          "count": 1,
+          "mean": 4.2,
+          "p50": 4.2,
+          "median": 4.2,
+          "p75": 4.2,
+          "p90": 4.2,
+          "p95": 4.2,
+          "p99": 4.2,
+          "p999": 4.2
+        }
+      },
+      "histograms": {
+        "browser.page.TTFB.https://www.tcgplayer-stg.com/checkout": {
+          "min": 335.3,
+          "max": 335.3,
+          "count": 1,
+          "mean": 335.3,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        },
+        "browser.page.FCP.https://www.tcgplayer-stg.com/checkout": {
+          "min": 2174.3,
+          "max": 2174.3,
+          "count": 1,
+          "mean": 2174.3,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "browser.page.LCP.https://www.tcgplayer-stg.com/checkout": {
+          "min": 2174.3,
+          "max": 2174.3,
+          "count": 1,
+          "mean": 2174.3,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "browser.page.FID.https://www.tcgplayer-stg.com/checkout": {
+          "min": 4.2,
+          "max": 4.2,
+          "count": 1,
+          "mean": 4.2,
+          "p50": 4.2,
+          "median": 4.2,
+          "p75": 4.2,
+          "p90": 4.2,
+          "p95": 4.2,
+          "p99": 4.2,
+          "p999": 4.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "browser.page.codes.200": 23,
+        "browser.http_requests": 26,
+        "browser.page.codes.204": 3,
+        "vusers.failed": 0,
+        "vusers.completed": 1
+      },
+      "rates": {},
+      "firstCounterAt": 1725913650966,
+      "firstHistogramAt": 1725913651836,
+      "lastCounterAt": 1725913651858,
+      "lastHistogramAt": 1725913651858,
+      "firstMetricAt": 1725913650966,
+      "lastMetricAt": 1725913651858,
+      "period": "1725913650000",
+      "summaries": {
+        "browser.page.INP.https://www.tcgplayer-stg.com/order-submitted": {
+          "min": 56,
+          "max": 56,
+          "count": 1,
+          "mean": 56,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 56.3,
+          "p90": 56.3,
+          "p95": 56.3,
+          "p99": 56.3,
+          "p999": 56.3
+        },
+        "browser.page.CLS.https://www.tcgplayer-stg.com/order-submitted": {
+          "min": 0.1,
+          "max": 0.1,
+          "count": 1,
+          "mean": 0.1,
+          "p50": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "p90": 0.1,
+          "p95": 0.1,
+          "p99": 0.1,
+          "p999": 0.1
+        },
+        "vusers.session_length": {
+          "min": 12399.3,
+          "max": 12399.3,
+          "count": 1,
+          "mean": 12399.3,
+          "p50": 12459.8,
+          "median": 12459.8,
+          "p75": 12459.8,
+          "p90": 12459.8,
+          "p95": 12459.8,
+          "p99": 12459.8,
+          "p999": 12459.8
+        }
+      },
+      "histograms": {
+        "browser.page.INP.https://www.tcgplayer-stg.com/order-submitted": {
+          "min": 56,
+          "max": 56,
+          "count": 1,
+          "mean": 56,
+          "p50": 56.3,
+          "median": 56.3,
+          "p75": 56.3,
+          "p90": 56.3,
+          "p95": 56.3,
+          "p99": 56.3,
+          "p999": 56.3
+        },
+        "browser.page.CLS.https://www.tcgplayer-stg.com/order-submitted": {
+          "min": 0.1,
+          "max": 0.1,
+          "count": 1,
+          "mean": 0.1,
+          "p50": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "p90": 0.1,
+          "p95": 0.1,
+          "p99": 0.1,
+          "p999": 0.1
+        },
+        "vusers.session_length": {
+          "min": 12399.3,
+          "max": 12399.3,
+          "count": 1,
+          "mean": 12399.3,
+          "p50": 12459.8,
+          "median": 12459.8,
+          "p75": 12459.8,
+          "p90": 12459.8,
+          "p95": 12459.8,
+          "p99": 12459.8,
+          "p999": 12459.8
+        }
+      }
+    }
+  ]
+}

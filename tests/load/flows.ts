@@ -1,84 +1,111 @@
-import { expect, Page } from "@playwright/test";
-import { createRandomDomesticAddressBook, createRandomDomesticAddressBookWithOptions, createRandomEmail } from "helpers";
+import { expect, Page, request } from "@playwright/test";
+import { createRandomDomesticAddressBookWithOptions } from "helpers";
+import { addAddress, bulkAddToCart, clearCart, createAnonymousCart, createPaymentMethod, createUserCart, deleteAllAddresses, getUserInfo, login } from "helpers/api";
+import { BulkAddItemsRequest, BulkAddItemsRequest_ItemRequest } from "models/cart";
+import { SignInData } from "models/marketplace";
+import { SavePaymentMethodInfo, VaultPaymentCreateUpdateRequestAuth } from "models/payments";
+import { createClient } from "redis";
 
-export async function helloFlow(page: Page) {
-  await page.goto('/');
-  await page.getByTestId('search-bar__spyglass').click();
-  await expect(page.getByText('in All Products')).toBeVisible({ timeout: 60000 });
-}
+export async function CheckoutFlow(page: Page, vuContext) {  
+  const redis = await createClient({
+    url: "redis://@redis.tcgplayer-stg.com:6379",
+  })
+  .on("error", (error) => console.log('Redis Client Error:', error))
+  .connect();
+  
+  // get unique user from redis
+  const user = (await redis.sPop('LoadTestingUsers')).toString();
+  // const userstr = await redis.lPop('LoadTestingUsers');
+  await redis.disconnect();
+  if (user.length === 0) {
+    console.error('No users found in Redis');
+    throw new Error('No users available');
+  }
 
-export async function authCheckoutFlow(page: Page) {
-  await page.goto('/');
-  await page.getByTestId('search-bar__spyglass').click();
-  await page.getByTestId('list-view-btn').click();
-  await page.getByTestId('add-to-cart__submit--2874398-10d11996').click();
-  await page.getByLabel('Perform snackbar action').click();
-  await page.getByTestId('checkout-btn').click();
-  await page.getByLabel('Email', { exact: true }).click();
-  await page.getByLabel('Email', { exact: true }).fill('automation.one@auto.com');
-  await page.getByLabel('Email', { exact: true }).press('Tab');
-  await page.getByLabel('Password', { exact: true }).fill('P@ssw0rd!');
-  await page.getByRole('button', { name: 'Sign In and Check Out' }).click();
+  const client = await request.newContext();
+  // login  
+  const loginRequest = new SignInData({
+    username: user.replaceAll("\"", ""),
+    password: 'P@ssw0rd!',
+    captchaToken: '20000000-aaaa-bbbb-cccc-000000000002',
+    termsOfServiceAccepted: true,
+    antiforgeryToken: 'string',
+    validation: false,
+    key: 'null',
+    isRevalidation: false,
+    isLongTermRevalidation: false,
+    isMobileAppLogin: false
+  });
+
+  await login(client, loginRequest);
+
+  const userInfo = await getUserInfo(client);
+
+  // seed cart
+  let { cartKey } = userInfo; 
+  const { externalUserId, userName } = userInfo;
+
+  if (userName === '') {
+    const response = await createAnonymousCart(client);
+
+    cartKey = response.cartKey;
+  }
+
+  if (!cartKey) 
+  {
+    const response = await createUserCart(client, externalUserId);
+
+    cartKey = response.cartKey;
+  }
+
+  await clearCart(client, cartKey);
+
+  const cartItems = new BulkAddItemsRequest_ItemRequest({
+    sku: vuContext.vars.sku,
+    sellerId: vuContext.vars.sellerKey,
+    requestedQuantity: vuContext.vars.quantity,
+    price: vuContext.vars.price,
+    isDirect: false,
+    channelId: 0,
+  });
+
+  const addItemsRequest = new BulkAddItemsRequest({
+    items: [cartItems],
+    countryCode: 'US'
+  });
+
+  await bulkAddToCart(client, cartKey, addItemsRequest);
+
+  // generate address
+  const address = createRandomDomesticAddressBookWithOptions({ isAbbreviated: true });
+  address.externalUserId = externalUserId;
+  await deleteAllAddresses(client);
+  // seed address
+  await addAddress(client, address);
+  // generate payment
+  const payment = new VaultPaymentCreateUpdateRequestAuth({
+    sessionId: 'string',
+    savePaymentMethodInfo: new SavePaymentMethodInfo({
+      paymentMethodNonce: 'fake-valid-no-billing-address-nonce',
+      paymentType: 0,
+      isDefault: false,
+      billingAddress: address
+    })
+  });
+  // seed payment
+  await createPaymentMethod(client, payment);
+
+  // set cookies for each browser
+  const storageState = await client.storageState();
+  const context = page.context();
+  await context.addCookies(storageState.cookies);
+
+  // navigate to checkout page
+  await page.goto('/checkout');
+
+  // place order
   await page.getByTestId('place-order-btn').click();
-}
-
-export async function guestCheckoutFlow(page: Page) {
-  await page.goto('https://www.tcgplayer-qa.com/');
-  await page.getByTestId('autocomplete-input').click();
-  await page.getByTestId('search-bar__spyglass').click();
-  await page.getByTestId('list-view-btn').click();
-  await page.getByTestId('add-to-cart__submit--5488258-c9972084').click();
-  await page.getByLabel('Perform snackbar action').click();
-  await page.getByTestId('checkout-btn').click();
-  await page.getByLabel('Email for Order & Delivery').click();
-  await page.getByLabel('Email for Order & Delivery').fill('asdf@asdf.com');
-  await page.locator('#guestCheckoutLoginForm span').first().click();
-  await page.getByTestId('guestCheckoutSubmitBtn').click();
-}
-
-
-
-export async function createAccountAndCheckout(page: Page) {
-  const address = createRandomDomesticAddressBookWithOptions({ isAbbreviated: false });
-
-  await page.goto('/');
-  await page.getByTestId('account-actions__tcg-user').click();
-  await page.getByLabel('Create a new account').click();
-  await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill(createRandomEmail());
-  await page.getByLabel('Email').press('Tab');
-  await page.getByLabel('Password', { exact: true }).fill('P@ssw0rd!');
-  await page.getByText('I agree to the TCGplayer').click();
-  await page.getByRole('button', { name: 'Create Account' }).click();
-  await page.getByTestId('autocomplete-input').click();
-  await page.getByTestId('autocomplete-input').fill('mewtwo');
-  await page.locator('a').filter({ hasText: 'Mega Mewtwo Collection [Mega Mewtwo X] - Special Presalein Pokemon' }).click();
-  await page.getByTestId('add-to-cart__submit--spotlight-FS_5488258-c9972084').click({timeout: 60000});
-  await expect(page.getByRole('alert')).toContainText('1 items added to cart.');
-  await page.getByLabel('view your shopping cart').click();
-  await page.getByTestId('btnCheckout').click();
-  await page.getByTestId('addressFormFirstName').click();
-  await page.getByTestId('addressFormFirstName').fill(address.firstName);
-  await page.getByTestId('addressFormFirstName').press('Tab');
-  await page.getByTestId('addressFormLastName').fill(address.lastName);
-  await page.getByTestId('addressFormLastName').press('Tab');
-  await page.getByTestId('addressFormCountry').press('Tab');
-  await page.getByTestId('addressFormAddrLine1').fill(address.addressLine1);
-  await page.getByTestId('addressFormAddrLine1').press('Tab');
-  await page.getByTestId('addressFormAddrLine2').press('Tab');
-  await page.getByTestId('addressFormCity').fill(address.city);
-  await page.getByTestId('addressFormCity').press('Tab');
-  await page.getByTestId('addressFormStateProvinceRegion').fill(address.stateProvinceRegion);
-  await page.getByText(address.stateProvinceRegion).click();
-  await page.getByTestId('addressFormZip').click();
-  await page.getByTestId('addressFormZip').fill(address.zipCode);
-  await page.getByTestId('checkout-ship-addr-save-btn').click();
-  await page.getByText('Use What I Provided').click();
-  await page.getByTestId('pmt-option-Card').locator('div').click();
-  await page.getByTestId('checkout-use-pmt-method-btn').click();
-  await page.locator('iframe[name="braintree-hosted-field-cardholderName"]').type(`${address.firstName} ${address.lastName}`);
-  await page.locator('iframe[name="braintree-hosted-field-number"]').type('4111111111111111');
-  await page.locator('iframe[name="braintree-hosted-field-expirationDate"]').type('1225');
-  await page.locator('iframe[name="braintree-hosted-field-cvv"]').type('123');
-  await page.getByTestId('paymentFormSubmitBtn').click();
+  await page.frameLocator('#braintree-hosted-field-cvv').getByLabel('cvv').fill('123');
+  await page.getByTestId('place-order-btn').click();
+  await expect(page.getByText('Here are the details:')).toBeVisible({ timeout: 60000 });
 }
