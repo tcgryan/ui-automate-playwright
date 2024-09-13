@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { expect, Page, request } from "@playwright/test";
 import { createRandomDomesticAddressBookWithOptions } from "helpers";
 import { addAddress, bulkAddToCart, clearCart, createAnonymousCart, createPaymentMethod, createUserCart, deleteAllAddresses, getUserInfo, login } from "helpers/api";
