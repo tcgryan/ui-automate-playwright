@@ -1,14 +1,14 @@
 config:
   target: https://www.tcgplayer-stg.com
   phases:
-  - duration: 10
-    arrivalRate: 3
+  - duration: 5
+    arrivalRate: 1
     name: Warm up phase
-  - duration: 10
-    arrivalRate: 5
-    name: Main load phase
-  - duration: 10
+  - duration: 15
     arrivalRate: 2
+    name: Main load phase
+  - duration: 5
+    arrivalRate: 1
     name: Ramp down load phase
   plugins:
     ensure: {}
