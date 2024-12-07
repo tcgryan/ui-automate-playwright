@@ -1,5 +1,7 @@
 import {test, expect} from '@playwright/test';
 
+// /product/search
+
 test('API Post Request', async({request}) => {
 //To verify use case of SEARCH-1130, New algorithms, sales-stem, should return aggregations
 
@@ -50,14 +52,3 @@ test('API Post Request', async({request}) => {
         expect(text).toContain('{"algorithm":"sales_stem",')
 })
 
-
-test('API GET REQUEST', async({request}) => {
-    const response = await request.get('https://data.tcgplayer-qa.com/autocomplete?q=pikachu')
-
-    expect (response.status()).toBe(200)
-
-    const expectedText = await response.text();
-    expect(expectedText).toContain('Battle Academy')
-
-    console.log(await response.json());
-})
